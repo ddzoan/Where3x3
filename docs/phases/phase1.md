@@ -1,22 +1,16 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 1: User Authentication, Browse Tournament List, Create New Tournaments
 
 ## Rails
 ### Models
 * User
-* Blog
-* Post
+* Tournaments
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+* TournamentsController (create, new, show, index)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
 
 ## Backbone
 ### Models

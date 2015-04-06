@@ -1,13 +1,11 @@
-# Phase 4: User Feeds
+# Phase 4: Google Maps API
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
 
 ### Views
-posts/feed.json.jbuilder
 
 ## Backbone
 ### Models
@@ -15,6 +13,7 @@ posts/feed.json.jbuilder
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* TournamentsIndex
 
 ## Gems/Libraries
+* Google Maps API

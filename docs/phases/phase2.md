@@ -1,29 +1,23 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Viewing Tournament Index and Tournament show page
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+Api::TournamentsController (create, destroy, index, show)
 
 ### Views
-* blogs/show.json.jbuilder
+* tournaments/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Tournament
 
 ### Collections
-* Blogs
-* Posts
+* Tournaments
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* TournamentsIndex (composite view, contains TournamentsIndexItem)
+* TournamentShow
 
 ## Gems/Libraries

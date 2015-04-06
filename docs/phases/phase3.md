@@ -1,7 +1,8 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Search
 
 ## Rails
 ### Models
+* Tournaments (search)
 
 ### Controllers
 
@@ -13,9 +14,5 @@
 ### Collections
 
 ### Views
-* PostForm
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown
