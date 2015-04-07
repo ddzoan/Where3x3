@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  fname           :string           not null
+#  lname           :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string
+#  wca_id          :string
+#  delegate        :boolean          default(FALSE)
+#  description     :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
   attr_reader :password
   validates :fname, :lname, :email, presence: true

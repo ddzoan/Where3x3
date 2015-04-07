@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: tournaments
+#
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  organizer_id :integer          not null
+#  delegate_id  :integer          not null
+#  location     :string           not null
+#  venue        :string           not null
+#  start_date   :date             not null
+#  end_date     :date             not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class Tournament < ActiveRecord::Base
   validates :name, :organizer_id, :delegate_id, :location, :venue, presence: true
   validates :start_date, :end_date, presence: true
