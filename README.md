@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]:
+[heroku]: https://where3x3.herokuapp.com/
 
 ## Minimum Viable Product
 Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's cube tournaments. Users can:
