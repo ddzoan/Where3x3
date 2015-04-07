@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SampleProjectProposalMaster</title>
+  <title>Where3x3</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render 'layouts/navbar' %>
+<% flash.each do |name, messages| %>
+  <ul>
+    <div class="alert alert-<%= name %>">
+      <% messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>
+    </div>
+  </ul>
+<% end %>
 
 <%= yield %>
 
