@@ -22,8 +22,8 @@ class Tournament < ActiveRecord::Base
   private
 
   def start_date_before_end_date
-    if this.end_date < this.start_date
-      errors[:end_date] << "can't be before start_date"
+    if self.end_date < self.start_date
+      errors[:end_date] << "can't be before start date"
     end
   end
 end
