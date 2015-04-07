@@ -19,6 +19,8 @@ class Tournament < ActiveRecord::Base
   validates :start_date, :end_date, presence: true
   validate :start_date_before_end_date
 
+  has_many :events
+
   private
 
   def start_date_before_end_date
