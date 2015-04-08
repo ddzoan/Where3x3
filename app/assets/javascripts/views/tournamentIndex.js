@@ -1,5 +1,6 @@
 Where3x3.Views.TournamentIndex = Backbone.CompositeView.extend({
   template: JST['tournaments/index'],
+
   initialize: function(){
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addTournament);

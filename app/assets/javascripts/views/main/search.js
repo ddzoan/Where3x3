@@ -1,5 +1,6 @@
 Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   template: JST['main/search_page'],
+  id: 'search',
   initialize: function(){
     this.tournaments = this.collection;
     this.tournaments.fetch();
