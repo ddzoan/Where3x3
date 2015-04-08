@@ -1,11 +1,17 @@
 Where3x3.Routers.Router = Backbone.Router.extend({
   initialize: function(){
-    this.$rootEl = $('#tournaments');
+    this.$rootEl = $('#main');
     this.tournaments = new Where3x3.Collections.Tournaments();
   },
 
   routes: {
-    '': 'tournamentIndex'
+    '': 'landing',
+    'search': 'tournamentIndex'
+  },
+
+  landing: function(){
+    var view = new Where3x3.Views.LandingPage({});
+    this._swapView(view);
   },
 
   tournamentIndex: function(){
