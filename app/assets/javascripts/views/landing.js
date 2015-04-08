@@ -1,5 +1,5 @@
 Where3x3.Views.LandingPage = Backbone.CompositeView.extend({
-  template: JST['landing_page'],
+  template: JST['main/landing_page'],
   events: {
     'submit': 'submit'
   },

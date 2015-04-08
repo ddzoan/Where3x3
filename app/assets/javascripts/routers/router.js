@@ -6,17 +6,16 @@ Where3x3.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'landing',
-    'search': 'tournamentIndex'
+    'search': 'search'
   },
 
   landing: function(){
-    var view = new Where3x3.Views.LandingPage({});
+    var view = new Where3x3.Views.LandingPage();
     this._swapView(view);
   },
 
-  tournamentIndex: function(){
-    this.tournaments.fetch();
-    var view = new Where3x3.Views.TournamentIndex({ collection: this.tournaments });
+  search: function(){
+    var view = new Where3x3.Views.SearchPage({ collection: this.tournaments });
     this._swapView(view);
   },
 
