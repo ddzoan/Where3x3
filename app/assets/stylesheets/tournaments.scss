@@ -2,11 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ul.tournaments {
+  padding-left: 0;
+}
+
 ul.tournaments li {
   border: 1px solid black;
   float: left;
-  padding: 5px;
   background-color: #d3d3d3;
   margin: 10px;
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 3px 3px 3px black;
+  box-sizing: border-box;
+  width: 45%;
+  height: auto;
 }
