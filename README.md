@@ -9,12 +9,13 @@ Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's c
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Browse tournaments
-- [ ] Create tournaments
-- [ ] Sign up for tournaments
+- [x] Create accounts
+- [ ] Create sessions (log in) (only single session implemented)
+- [x] Browse all tournaments
+- [ ] View tournament
 - [ ] Search for tournaments by location/date
+- [ ] Sign up for tournaments
+- [ ] Create tournaments
 - [ ] View past tournaments
 
 ## Design Docs
@@ -26,19 +27,21 @@ Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's c
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Browse Tournament List, Create New Tournaments (~1 day)
+### Phase 1: User Authentication, Browse Tournament Index (~1 day)
 I will implement user authentication in Rails based on the practices learned at
 App Academy. Users will be able to sign up for accounts and log in. I will create
-API routes to create a new tournament and to get all tournaments.
+API routes to return the tournament index and show routes. Backbone will be used
+to display the views for the main search page with the tournaments on the left
+side.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Tournament Index and Tournament show page (~2 days)
-Use backbone to create the list view page and the tournament details view.
+### Phase 2: Tournament show page (~0.5 days)
+Use backbone to create the tournament details view page.
 
 [Details][phase-two]
 
-### Phase 3: Search (~1 day)
+### Phase 3: Search (~1.5 days)
 Implement search by location and by date range on the server side.
 
 [Details][phase-three]
@@ -54,11 +57,13 @@ Create user profile page with details and profile image
 [Details][phase-five]
 
 ### Bonus Features (TBD)
+- [ ] Super awesome Rubik's Cube CSS transitions (if possible?)
 - [ ] Comments on tournaments and user pages
 - [ ] Pagination/infinite scroll
 - [ ] Custom tournament urls
 - [ ] Notifications (new tournaments nearby)
 - [ ] User avatars
+- [ ] Tournament photos
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

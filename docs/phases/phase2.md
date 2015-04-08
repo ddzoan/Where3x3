@@ -4,20 +4,20 @@
 ### Models
 
 ### Controllers
-Api::TournamentsController (create, destroy, index, show)
+* ~~Api::TournamentsController (create, index, show)~~ (done with phase 1)
 
 ### Views
-* tournaments/show.json.jbuilder
+* ~~tournaments/show.json.jbuilder~~ (done with phase 1)
 
 ## Backbone
 ### Models
-* Tournament
+* ~~Tournament~~ (done with phase 1)
 
 ### Collections
-* Tournaments
+* ~~Tournaments~~ (done with phase 1)
 
 ### Views
-* TournamentsIndex (composite view, contains TournamentsIndexItem)
+* ~~TournamentsIndex (composite view, contains TournamentsIndexItem)~~ (done with phase 1)
 * TournamentShow
 
 ## Gems/Libraries

@@ -4,19 +4,25 @@
 ### Models
 * User
 * Tournaments
+* Events
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* TournamentsController (create, new, show, index)
+* Api::TournamentsController (create, show, index)
 
 ### Views
+* tournaments/show.json.jbuilder
 
 ## Backbone
 ### Models
+* Tournament
 
 ### Collections
+* Tournament
 
 ### Views
+* TournamentIndex
+* TournamentIndexItem
 
 ## Gems/Libraries
