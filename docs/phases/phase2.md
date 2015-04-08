@@ -1,4 +1,4 @@
-# Phase 2: Viewing Tournament Index and Tournament show page
+# Phase 2: Tournament show page, site breakdown 3 main page views
 
 ## Rails
 ### Models
@@ -18,6 +18,8 @@
 
 ### Views
 * ~~TournamentsIndex (composite view, contains TournamentsIndexItem)~~ (done with phase 1)
-* TournamentShow
+* TournamentDetails
+* Search
+* Landing
 
 ## Gems/Libraries

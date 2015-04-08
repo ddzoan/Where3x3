@@ -5,7 +5,8 @@
 [heroku]: https://where3x3.herokuapp.com/
 
 ## Minimum Viable Product
-Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's cube tournaments. Users can:
+Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's
+cube tournaments. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
@@ -29,19 +30,20 @@ Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's c
 
 ### Phase 1: User Authentication, Browse Tournament Index (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. Users will be able to sign up for accounts and log in. I will create
-API routes to return the tournament index and show routes. Backbone will be used
-to display the views for the main search page with the tournaments on the left
-side.
+App Academy. Users will be able to sign up for accounts and log in. I will
+create API routes to return the tournament index and show routes. Backbone will
+be used to display the views for the main search page with the tournaments on
+the left side.
 
 [Details][phase-one]
 
-### Phase 2: Tournament show page (~0.5 days)
-Use backbone to create the tournament details view page.
+### Phase 2: Tournament show page, site breakdown 3 main page views (~1 day)
+Use backbone to create the tournament details view page. Create views for the 3
+main page views, (landing, search, tournament details)
 
 [Details][phase-two]
 
-### Phase 3: Search (~1.5 days)
+### Phase 3: Search (~1 day)
 Implement search by location and by date range on the server side.
 
 [Details][phase-three]
@@ -51,10 +53,18 @@ Integrate google maps API with search results
 
 [Details][phase-four]
 
-### Phase 5: User Profile Page (~1 day)
-Create user profile page with details and profile image
+### Phase 5: Extract real data for seeding (~0.5 days)
+Extract data from the [WCA Database](https://www.worldcubeassociation.org/results/misc/export.html) to
+use as seed data.
 
 [Details][phase-five]
+
+### Phase 6: User Profile Page (~1 day)
+Create user profile page with details and profile image
+
+[Details][phase-six]
+
+### Phase 6: Styling
 
 ### Bonus Features (TBD)
 - [ ] Super awesome Rubik's Cube CSS transitions (if possible?)
