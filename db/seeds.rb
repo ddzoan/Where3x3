@@ -25,7 +25,7 @@ ty = User.create({
 jeremy = User.create({
   fname: 'Jeremy',
   lname: 'Flei',
-  email: 'flei',
+  email: 'jflei',
   password: 'asdfasdf',
   wca_id: '2005FLEI01',
   delegate: true

@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  def full_name
+    "#{self.fname} #{self.lname}"
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
