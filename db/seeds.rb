@@ -34,7 +34,7 @@ berkeley_spring = Tournament.create({
   name: "Berkeley Spring 2015",
   organizer_id: dan.id,
   delegate_id: jeremy.id,
-  location: "Berkeley, California, USA",
+  location: "UC Berkeley, Berkeley, California, USA",
   venue: "UC Berkeley",
   start_date: Date.new(2015, 4, 12),
   end_date: Date.new(2015, 4, 12)
