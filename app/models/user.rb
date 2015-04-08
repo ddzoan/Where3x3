@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_many :organized_tournaments, foreign_key: :organizer_id, class_name: 'Tournament'
+  has_many :delegated_tournaments, foreign_key: :delegate_id, class_name: 'Tournament'
+
   after_initialize :ensure_session_token
 
   def full_name

@@ -20,6 +20,8 @@ class Tournament < ActiveRecord::Base
   validate :start_date_before_end_date
 
   has_many :events
+  belongs_to :organizer, class_name: 'User'
+  belongs_to :delegate, class_name: 'User'
 
   private
 
