@@ -1,7 +1,7 @@
 module Api
   class Api::TournamentsController < ApiController
     def index
-      @tournaments = Tournament.all
+      @tournaments = Tournament.all.order(:start_date)
       render json: @tournaments
     end
 
