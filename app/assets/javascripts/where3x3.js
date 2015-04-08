@@ -4,7 +4,7 @@ window.Where3x3 = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    
   }
 };
 
