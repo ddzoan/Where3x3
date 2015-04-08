@@ -39,7 +39,11 @@ berkeley_spring = Tournament.create({
   start_date: Date.new(2015, 4, 12),
   end_date: Date.new(2015, 4, 12)
 })
-us_nats = Tournament.create({
+Event.create({ tournament_id: berkeley_spring.id, event_type: 1 })
+Event.create({ tournament_id: berkeley_spring.id, event_type: 2 })
+Event.create({ tournament_id: berkeley_spring.id, event_type: 3 })
+
+us_nats = Tournament.create_with_all_events({
   name: "US Nationals 2015",
   organizer_id: ty.id,
   delegate_id: ty.id,
@@ -57,7 +61,11 @@ sf = Tournament.create({
   start_date: Date.new(2015, 4, 30),
   end_date: Date.new(2015, 4, 30)
 })
-wc = Tournament.create({
+Event.create({ tournament_id: sf.id, event_type: 1 })
+Event.create({ tournament_id: sf.id, event_type: 2 })
+Event.create({ tournament_id: sf.id, event_type: 3 })
+
+wc = Tournament.create_with_all_events({
   name: "World Championships 2015",
   organizer_id: dan.id,
   delegate_id: jeremy.id,
@@ -65,4 +73,22 @@ wc = Tournament.create({
   venue: "ETAPA",
   start_date: Date.new(2015, 7, 17),
   end_date: Date.new(2015, 7, 19)
+})
+
+mit_spring = Tournament.create_with_all_events({
+  name: "MIT Spring 2015",
+  organizer_id: 1, delegate_id: 3,
+  location: '84 Massachusetts Avenue Lobdell Dining Room',
+  venue: 'Lobdell Dining Room',
+  start_date: Date.new(2015, 5, 2),
+  end_date: Date.new(2015,5,2)
+})
+
+thai = Tournament.create_with_all_events({
+  name: "Thailand Championship 2015",
+  organizer_id: 1, delegate_id: 3,
+  location: '1 Rachadaphisek Road, Fortune Town, Din Daeng',
+  venue: '2nd floor activity area',
+  start_date: Date.new(2015, 5, 23),
+  end_date: Date.new(2015,5,24)
 })

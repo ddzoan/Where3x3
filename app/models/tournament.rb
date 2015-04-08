@@ -23,6 +23,14 @@ class Tournament < ActiveRecord::Base
   belongs_to :organizer, class_name: 'User'
   belongs_to :delegate, class_name: 'User'
 
+  def self.create_with_all_events(params)
+    tournament = Tournament.create(params)
+    18.times do |i|
+      Event.create({ tournament_id: tournament.id, event_type: i})
+    end
+    tournament
+  end
+
   private
 
   def start_date_before_end_date
