@@ -7,6 +7,13 @@
 #  delegate        :boolean          default(FALSE)
 #  description     :text
 
+guest = User.create({
+  fname: 'Erno',
+  lname: 'Rubik',
+  email: 'ernorubik@example.com',
+  password: 'rubikscube'
+})
+
 dan = User.create({
   fname: 'Dan',
   lname: 'Dzoan',
@@ -78,7 +85,7 @@ wc = Tournament.create_with_all_events({
 mit_spring = Tournament.create_with_all_events({
   name: "MIT Spring 2015",
   organizer_id: dan.id, delegate_id: jeremy.id,
-  location: '84 Massachusetts Avenue Lobdell Dining Room',
+  location: '84 Massachusetts Avenue, Cambridge, MA',
   venue: 'Lobdell Dining Room',
   start_date: Date.new(2015, 5, 2),
   end_date: Date.new(2015,5,2)

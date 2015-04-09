@@ -12,6 +12,8 @@
 #  end_date     :date             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  lat          :decimal(10, 6)
+#  lng          :decimal(10, 6)
 #
 
 require 'test_helper'

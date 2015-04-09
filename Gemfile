@@ -52,3 +52,4 @@ end
 gem 'newrelic_rpm'
 gem 'bootstrap-sass'
 gem 'backbone-on-rails'
+gem 'rest-client'

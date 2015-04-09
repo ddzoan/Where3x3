@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407212001) do
+ActiveRecord::Schema.define(version: 20150409024009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,17 @@ ActiveRecord::Schema.define(version: 20150407212001) do
   add_index "events", ["tournament_id"], name: "index_events_on_tournament_id", using: :btree
 
   create_table "tournaments", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.integer  "organizer_id", null: false
-    t.integer  "delegate_id",  null: false
-    t.string   "location",     null: false
-    t.string   "venue",        null: false
-    t.date     "start_date",   null: false
-    t.date     "end_date",     null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name",                                  null: false
+    t.integer  "organizer_id",                          null: false
+    t.integer  "delegate_id",                           null: false
+    t.string   "location",                              null: false
+    t.string   "venue",                                 null: false
+    t.date     "start_date",                            null: false
+    t.date     "end_date",                              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.decimal  "lat",          precision: 10, scale: 6
+    t.decimal  "lng",          precision: 10, scale: 6
   end
 
   add_index "tournaments", ["delegate_id"], name: "index_tournaments_on_delegate_id", using: :btree

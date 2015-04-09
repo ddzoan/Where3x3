@@ -12,6 +12,8 @@
 #  end_date     :date             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  lat          :decimal(10, 6)
+#  lng          :decimal(10, 6)
 #
 
 class Tournament < ActiveRecord::Base
@@ -29,6 +31,29 @@ class Tournament < ActiveRecord::Base
       Event.create({ tournament_id: tournament.id, event_type: i})
     end
     tournament
+  end
+
+  def self.geocode_all
+    Tournament.all.each do |tournament|
+      unless tournament.lat && tournament.lng
+        resp = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json",
+          { params: {
+              address: tournament.location,
+              key: 'AIzaSyC5eMoy3OwWNxLR0Y3ksPeVnkAO8_Pv82A'
+          }
+        })
+        json = JSON.parse(resp)
+        if json['status'] == 'OK'
+          tournament.lat = json['results'][0]['geometry']['location']['lat']
+          tournament.lng = json['results'][0]['geometry']['location']['lng']
+          tournament.save
+        else
+          puts json['status']
+        end
+
+        sleep 0.3 # api key limited to 5 requests per second
+      end
+    end
   end
 
   private
