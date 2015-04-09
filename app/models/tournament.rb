@@ -25,6 +25,12 @@ class Tournament < ActiveRecord::Base
   belongs_to :organizer, class_name: 'User'
   belongs_to :delegate, class_name: 'User'
 
+  acts_as_mappable :default_units => :miles,
+                   :default_formula => :sphere,
+                   :distance_field_name => :distance,
+                   :lat_column_name => :lat,
+                   :lng_column_name => :lng
+
   def self.create_with_all_events(params)
     tournament = Tournament.create(params)
     18.times do |i|
