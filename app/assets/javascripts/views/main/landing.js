@@ -11,6 +11,9 @@ Where3x3.Views.LandingPage = Backbone.CompositeView.extend({
   },
   submit: function(event){
     event.preventDefault();
-    Backbone.history.navigate('search', { trigger: true });
+    var formData = this.$('form').serializeJSON();
+    var search_w_params = 'search?loc=' + formData.loc + '&start=' +
+      formData.start + '&end=' + formData.end + '&rad=' + formData.rad;
+    Backbone.history.navigate(search_w_params, { trigger: true });
   }
 });

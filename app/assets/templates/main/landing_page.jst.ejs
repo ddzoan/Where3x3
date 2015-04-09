@@ -2,7 +2,16 @@
 <div class="form-group">
   <form class="" action="index.html" method="post">
     <label>Location
-      <input type="text" class="form-control" name="search" placeholder="San Francisco">
+      <input type="text" class="form-control" name="loc" placeholder="Location">
+    </label>
+    <label>Start
+      <input type="date" class="form-control" name="start" value="<%= moment().format('YYYY-MM-DD') %>">
+    </label>
+    <label>End
+      <input type="date" class="form-control" name="end" value="<%= moment().add(1, 'days').format('YYYY-MM-DD') %>">
+    </label>
+    <label>Radius
+      <input type="number" class="form-control" name="rad" value="30">
     </label>
     <button type="submit" class="btn btn-default">Search!</button>
   </form>

@@ -1,7 +1,6 @@
 Where3x3.Routers.Router = Backbone.Router.extend({
   initialize: function(){
     this.$rootEl = $('#main');
-    this.tournaments = new Where3x3.Collections.Tournaments();
   },
 
   routes: {
@@ -15,8 +14,8 @@ Where3x3.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  search: function(){
-    var view = new Where3x3.Views.SearchPage({ collection: this.tournaments });
+  search: function(params){
+    var view = new Where3x3.Views.SearchPage({ search: params });
     this._swapView(view);
   },
 
