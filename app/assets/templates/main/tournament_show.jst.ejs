@@ -1,12 +1,15 @@
-<%= tournament.escape('name') %>
-<br>
-<%= tournament.escape('location') %>
-<br>
-<%= tournament.escape('venue') %>
-<br>
-<%= tournament.escape('start_date') %>
-<br>
-<% if(tournament.escape('start_date') < tournament.escape('end_date')){ %>
-  <%= tournament.escape('end_date') %>
-  <br>
-<% } %>
+<h1><%= tournament.escape('name') %></h1>
+<ul>
+  <li>
+    Location: <%= tournament.escape('location') %>
+  </li>
+  <li>
+    Venue: <%= tournament.escape('venue') %>
+  </li>
+  <li>
+    Date: <%= tournament.escape('start_date') %>
+    <% if(tournament.escape('start_date') < tournament.escape('end_date')){ %>
+      - <%= tournament.escape('end_date') %>
+    <% } %>
+  </li>
+</ul>
