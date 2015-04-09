@@ -14,6 +14,15 @@
   </div>
   <button type="submit" class="btn btn-default">Sign In</button>
 </form>
+<div class="guest-button">
+  <button class="guest btn btn-primary">Guest Login</button>
+</div>
+<script>
+  $('button.guest').click(function(){
+    $("input[name='user[email]']").val('ernorubik@example.com');
+    $("input[name='user[password]']").val('rubikscube');
+  })
+</script>
 <div>
 Don't have an account? <%= link_to 'Sign up now!', new_user_url %>
 </div>

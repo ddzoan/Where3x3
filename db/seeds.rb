@@ -94,8 +94,10 @@ mit_spring = Tournament.create_with_all_events({
 thai = Tournament.create_with_all_events({
   name: "Thailand Championship 2015",
   organizer_id: dan.id, delegate_id: jeremy.id,
-  location: '1 Rachadaphisek Road, Fortune Town, Din Daeng',
+  location: 'Fortune Town Building Bangkok Thailand',
   venue: '2nd floor activity area',
   start_date: Date.new(2015, 5, 23),
   end_date: Date.new(2015,5,24)
 })
+
+Tournament.geocode_all
