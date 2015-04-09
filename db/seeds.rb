@@ -77,7 +77,7 @@ wc = Tournament.create_with_all_events({
 
 mit_spring = Tournament.create_with_all_events({
   name: "MIT Spring 2015",
-  organizer_id: 1, delegate_id: 3,
+  organizer_id: dan.id, delegate_id: jeremy.id,
   location: '84 Massachusetts Avenue Lobdell Dining Room',
   venue: 'Lobdell Dining Room',
   start_date: Date.new(2015, 5, 2),
@@ -86,7 +86,7 @@ mit_spring = Tournament.create_with_all_events({
 
 thai = Tournament.create_with_all_events({
   name: "Thailand Championship 2015",
-  organizer_id: 1, delegate_id: 3,
+  organizer_id: dan.id, delegate_id: jeremy.id,
   location: '1 Rachadaphisek Road, Fortune Town, Din Daeng',
   venue: '2nd floor activity area',
   start_date: Date.new(2015, 5, 23),
