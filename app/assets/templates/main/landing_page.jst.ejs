@@ -8,7 +8,7 @@
       <input type="date" class="form-control" name="start" value="<%= moment().format('YYYY-MM-DD') %>">
     </label>
     <label>End
-      <input type="date" class="form-control" name="end" value="<%= moment().add(1, 'days').format('YYYY-MM-DD') %>">
+      <input type="date" class="form-control" name="end" value="<%= moment().add(365, 'days').format('YYYY-MM-DD') %>">
     </label>
     <label>Radius
       <input type="number" class="form-control" name="rad" value="30">
