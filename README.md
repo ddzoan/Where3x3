@@ -68,6 +68,7 @@ Create user profile page with details and profile image
 
 ### Bonus Features (TBD)
 - [ ] Super awesome Rubik's Cube CSS transitions (if possible?)
+- [ ] Custom map markers
 - [ ] Comments on tournaments and user pages
 - [ ] Pagination/infinite scroll
 - [ ] Custom tournament urls
