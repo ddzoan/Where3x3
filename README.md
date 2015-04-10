@@ -69,9 +69,10 @@ Create user profile page with details and profile image
 ### Bonus Features (TBD)
 - [ ] Super awesome Rubik's Cube CSS transitions (if possible?)
 - [ ] Custom map markers
-- [ ] Comments on tournaments and user pages
 - [ ] Pagination/infinite scroll
+- [ ] Autocomplete for addresses (https://developers.google.com/maps/documentation/javascript/places-autocomplete)
 - [ ] Custom tournament urls
+- [ ] Comments on tournaments and user pages
 - [ ] Notifications (new tournaments nearby)
 - [ ] User avatars
 - [ ] Tournament photos
