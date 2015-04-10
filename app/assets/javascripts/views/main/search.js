@@ -32,6 +32,14 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       end_date: options.search.end
     });
     this.addSubview('.dates', dates);
+
+    var default_lat = 37.781273;
+    var default_lng = -122.411463;
+
+    this.map = new Where3x3.Views.MapShow({
+      center: { lat: default_lat, lng: default_lng },
+      zoom: 12
+    });
   },
 
   extractLocation: function(params){
@@ -49,7 +57,16 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
+
+    this.$('#map').html(this.map.$el);
+    this.map.render();
+
     return this;
+  },
+
+  remove: function(){
+    Backbone.CompositeView.prototype.remove.call(this);
+    this.map.remove();
   }
 });
 

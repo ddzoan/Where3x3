@@ -1,11 +1,18 @@
 #tournament-browse {
-  width: 50%;
-  border: 1px solid black;
-  float: left;
+  position: absolute;
+  left: 0;
+  width: 60%;
 }
 
 #map {
-  width: 50%;
-  border: 1px solid black;
-  float: right;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  width: 40%;
+}
+
+#map-canvas {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
