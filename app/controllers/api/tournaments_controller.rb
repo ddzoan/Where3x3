@@ -48,7 +48,7 @@ module Api
     private
 
     def search_params
-      params.require(:search).permit(:start, :end, :rad, :center => [])
+      params.permit(:search).permit(:start, :end, :rad, :center => [])
     end
 
     def tournament_params

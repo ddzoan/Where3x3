@@ -6,7 +6,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   initialize: function(options){
     this.tournaments = this.collection;
     if(options.search.loc !== ""){
-      this.extractLocation(options);
+      this.extractLocation({ search: options.search });
     } else {
       delete options.search.loc;
       this.tournaments.fetch({
