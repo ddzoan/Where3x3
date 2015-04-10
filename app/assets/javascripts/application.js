@@ -16,6 +16,7 @@
 //= require backbone
 //= require where3x3
 //= require composite_view
+//= require map_view
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

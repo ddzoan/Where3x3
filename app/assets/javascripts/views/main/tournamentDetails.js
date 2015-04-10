@@ -9,6 +9,9 @@ Where3x3.Views.TournamentDetails = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template({ tournament: this.model });
     this.$el.html(content);
+    this.showStaticMap(this.model.get('lat'), this.model.get('lng'));
     return this;
   }
 });
+
+_.extend(Where3x3.Views.TournamentDetails.prototype, Where3x3.MapView);
