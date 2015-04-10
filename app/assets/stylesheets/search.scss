@@ -1,11 +1,15 @@
 #tournament-browse {
-  position: absolute;
+  position: fixed;
+  top: 145px;
+  bottom: 0;
   left: 0;
   width: 60%;
+  overflow-y: scroll;
 }
 
 #map {
-  height: 100%;
+  top: 50px;
+  bottom: 0;
   position: absolute;
   right: 0;
   width: 40%;

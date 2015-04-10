@@ -13,8 +13,13 @@ ul.tournaments li {
   margin: 10px;
   box-shadow: 3px 3px 3px black;
   box-sizing: border-box;
-  width: 48%;
+  width: 45%;
   height: auto;
+  overflow-y: scroll;
+}
+
+div.search {
+  margin: 10px;
 }
 
 div.details, div.form {
