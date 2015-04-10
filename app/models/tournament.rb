@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  name         :string           not null
 #  organizer_id :integer          not null
-#  delegate_id  :integer          not null
+#  delegate_id  :integer
 #  location     :string           not null
 #  venue        :string           not null
 #  start_date   :date             not null
