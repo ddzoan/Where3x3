@@ -1,7 +1,7 @@
 Where3x3.Routers.Router = Backbone.Router.extend({
   initialize: function(){
     this.$rootEl = $('#main');
-    this.allTournaments = new Where3x3.Collections.Tournaments();
+    this.tournaments = new Where3x3.Collections.Tournaments();
   },
 
   routes: {
@@ -17,18 +17,21 @@ Where3x3.Routers.Router = Backbone.Router.extend({
   },
 
   search: function(params){
-    var view = new Where3x3.Views.SearchPage({ search: params });
+    var view = new Where3x3.Views.SearchPage({
+      collection: this.tournaments,
+      search: params
+    });
     this._swapView(view);
   },
 
   tournamentDetails: function(id){
-    var tournament = this.allTournaments.getOrFetch(id);
+    var tournament = this.tournaments.getOrFetch(id);
     var view = new Where3x3.Views.TournamentDetails({ model: tournament });
     this._swapView(view);
   },
 
   create: function(){
-    var view = new Where3x3.Views.CreatePage({ collection: this.allTournaments });
+    var view = new Where3x3.Views.CreatePage({ collection: this.tournaments });
     this._swapView(view);
   },
 
@@ -37,6 +40,7 @@ Where3x3.Routers.Router = Backbone.Router.extend({
       this.currentView.remove();
     }
     this.currentView = view;
-    this.$rootEl.html(view.render().$el);
+    this.$rootEl.html(view.$el);
+    view.render();
   }
 });
