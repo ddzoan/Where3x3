@@ -21,7 +21,7 @@ class Tournament < ActiveRecord::Base
   validates :start_date, :end_date, presence: true
   validate :start_date_before_end_date
 
-  has_many :events
+  has_many :events, dependent: :destroy
   belongs_to :organizer, class_name: 'User'
   belongs_to :delegate, class_name: 'User'
 
