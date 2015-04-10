@@ -3,7 +3,11 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   id: 'search',
   initialize: function(params){
     this.tournaments = new Where3x3.Collections.Tournaments();
-    this.extractLocation(params);
+    if(params.search.loc !== ""){
+      this.extractLocation(params);
+    } else {
+      this.tournaments.fetch({ data: params });
+    }
     var view = new Where3x3.Views.TournamentIndex({ collection: this.tournaments });
     this.addSubview('#tournament-browse', view);
   },
