@@ -1,21 +1,8 @@
 module Api
   class Api::TournamentsController < ApiController
     def index
-      if search_params[:loc]
-        resp = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json",
-          { params: {
-              address: search_params[:loc],
-              # key: 'AIzaSyB8pqPpYhPhCttU1OnLJY_qcbFOpWagtZM'
-          }
-        })
-        json = JSON.parse(resp)
-        lat = json['results'][0]['geometry']['location']['lat']
-        lng = json['results'][0]['geometry']['location']['lng']
-        center = [lat, lng]
-      end
-
-      if search_params[:loc].present? && !search_params[:rad].present?
-        @tournaments = Tournament.by_distance(origin: center)
+      if search_params[:center].present? && !search_params[:rad].present?
+        @tournaments = Tournament.by_distance(origin: search_params[:center])
       else
         @tournaments = Tournament.all.order(:start_date)
       end
@@ -29,10 +16,8 @@ module Api
           @tournaments = @tournaments.where("end_date <= ?", search_params[:end].to_date)
         end
 
-        if search_params[:loc].present? && search_params[:rad].present?
-
-
-          @tournaments = @tournaments.within(search_params[:rad], origin: center)
+        if search_params[:center].present? && search_params[:rad].present?
+          @tournaments = @tournaments.within(search_params[:rad], origin: search_params[:center])
         end
       end
 
