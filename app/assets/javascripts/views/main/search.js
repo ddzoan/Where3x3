@@ -12,7 +12,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     var index = new Where3x3.Views.TournamentIndex({ collection: this.tournaments });
     this.addSubview('#tournament-browse', index);
 
-    var loc = new Where3x3.Views.SearchBar({ loc: params.search.loc });
+    var loc = new Where3x3.Views.SearchBar({ loc: params.search.loc, rad: params.search.rad });
     this.addSubview('.location', loc);
     var dates = new Where3x3.Views.DateBar({ start_date: params.search.start, end_date: params.search.end });
     this.addSubview('.dates', dates);
