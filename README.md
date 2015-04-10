@@ -13,10 +13,11 @@ cube tournaments. Users can:
 - [x] Create accounts
 - [ ] Create sessions (log in) (only single session implemented)
 - [x] Browse all tournaments
-- [ ] View tournament
-- [ ] Search for tournaments by location/date
+- [x] View tournament
+- [x] Search for tournaments by location/date/radius
+- [ ] Search for tournaments in map
 - [ ] Sign up for tournaments
-- [ ] Create tournaments
+- [x] Create tournaments
 - [ ] View past tournaments
 
 ## Design Docs
@@ -64,18 +65,19 @@ Create user profile page with details and profile image
 
 [Details][phase-six]
 
-### Phase 6: Styling
+### Phase 7: Styling (2 days)
+Style all the things
 
 ### Bonus Features (TBD)
-- [ ] Super awesome Rubik's Cube CSS transitions (if possible?)
 - [ ] Custom map markers
-- [ ] Pagination/infinite scroll
 - [ ] Autocomplete for addresses (https://developers.google.com/maps/documentation/javascript/places-autocomplete)
 - [ ] Custom tournament urls
+- [ ] Pagination/infinite scroll
+- [ ] User avatars
+- [ ] Super awesome Rubik's Cube CSS transitions (if possible?)
+- [ ] Tournament photos
 - [ ] Comments on tournaments and user pages
 - [ ] Notifications (new tournaments nearby)
-- [ ] User avatars
-- [ ] Tournament photos
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

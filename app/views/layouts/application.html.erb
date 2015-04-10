@@ -1,8 +1,15 @@
 <!DOCTYPE html>
+<% if Rails.env.production? %>
+  <% api_key = '' %>
+<% else %>
+  <% api_key = 'key=AIzaSyB8pqPpYhPhCttU1OnLJY_qcbFOpWagtZM' %>
+<% end %>
 <html>
 <head>
   <title>Where3x3</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?<%= api_key %>"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
