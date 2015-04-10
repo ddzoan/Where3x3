@@ -45,7 +45,7 @@ module Api
     end
 
     def create
-      @tournament = Tournament.new(tournament_params)
+      @tournament = current_user.organized_tournaments.new(tournament_params)
       if @tournament.save
         render json: @tournament
       else
@@ -67,7 +67,7 @@ module Api
     end
 
     def tournament_params
-      params.require(:tournament).permit(:name, :organizer_id, :delegate_id, :location, :venue, :start_date, :end_date)
+      params.require(:tournament).permit(:name, :organizer_id, :delegate_id, :location, :venue, :start_date, :end_date, :lat, :lng)
     end
   end
 end
