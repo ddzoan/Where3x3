@@ -1,8 +1,12 @@
 module Api
   class Api::TournamentsController < ApiController
     def index
-      if search_params[:center].present? && !search_params[:rad].present?
-        @tournaments = Tournament.by_distance(origin: search_params[:center])
+      if search_params[:lat].present? && search_params[:lng].present?
+        center = [search_params[:lat], search_params[:lng]]
+      end
+
+      if center && !search_params[:rad].present?
+        @tournaments = Tournament.by_distance(origin: center)
       else
         @tournaments = Tournament.all.order(:start_date)
       end
@@ -16,8 +20,8 @@ module Api
           @tournaments = @tournaments.where("end_date <= ?", search_params[:end].to_date)
         end
 
-        if search_params[:center].present? && search_params[:rad].present?
-          @tournaments = @tournaments.within(search_params[:rad], origin: search_params[:center])
+        if center && search_params[:rad].present?
+          @tournaments = @tournaments.within(search_params[:rad], origin: center)
         end
       end
 
@@ -48,7 +52,7 @@ module Api
     private
 
     def search_params
-      params.require(:search).permit(:start, :end, :rad, :center => [])
+      params.require(:search).permit(:start, :end, :rad, :lat, :lng)
     end
 
     def tournament_params

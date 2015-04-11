@@ -5,16 +5,12 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.tournaments = this.collection;
-    if(options.search.loc !== ""){
-      this.extractLocation({ search: options.search });
-    } else {
       delete options.search.loc;
       this.tournaments.fetch({
         data: {
           search: options.search
         }
       });
-    }
 
     var index = new Where3x3.Views.TournamentIndex({
       collection: this.tournaments
@@ -33,24 +29,15 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     });
     this.addSubview('.dates', dates);
 
-    var default_lat = 37.781273;
-    var default_lng = -122.411463;
+    var lat = 37.781273; //default values if none specified
+    var lng = -122.411463;
+    if(options.search.lat !== ""){ lat = Number(options.search.lat); }
+    if(options.search.lng !== ""){ lng = Number(options.search.lng); }
 
     this.map = new Where3x3.Views.MapShow({
-      center: { lat: default_lat, lng: default_lng },
+      center: { lat: lat, lng: lng },
       zoom: 12
     });
-  },
-
-  extractLocation: function(params){
-    this.getLatLng(params.search.loc, function(resp){
-      var lat = resp.results[0].geometry.location.lat;
-      var lng = resp.results[0].geometry.location.lng;
-      var center = [lat, lng];
-      delete params.search.loc;
-      params.search.center = center;
-      this.tournaments.fetch({ data: params });
-    }.bind(this));
   },
 
   render: function(){
@@ -69,5 +56,3 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.map.remove();
   }
 });
-
-_.extend(Where3x3.Views.SearchPage.prototype, Where3x3.MapView);
