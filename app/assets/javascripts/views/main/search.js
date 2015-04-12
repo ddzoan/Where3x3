@@ -1,6 +1,5 @@
 Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   template: JST['main/search_page'],
-
   id: 'search',
 
   initialize: function(options){
@@ -42,10 +41,10 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     google.maps.event.addListener(autocomplete, 'place_changed', function(){
       var place = autocomplete.getPlace();
       console.log('do search');
-      console.log('render map');
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
-    });
+      this.map.centerMap(lat, lng);
+    }.bind(this));
   },
 
 
