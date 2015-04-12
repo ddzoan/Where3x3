@@ -19,15 +19,11 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
     var loc = new Where3x3.Views.SearchBar({
       loc: options.search.loc,
-      rad: options.search.rad
-    });
-    this.addSubview('.location', loc);
-
-    var dates = new Where3x3.Views.DateBar({
+      rad: options.search.rad,
       start_date: options.search.start,
       end_date: options.search.end
     });
-    this.addSubview('.dates', dates);
+    this.addSubview('.search', loc);
 
     var lat = 37.781273; //default values if none specified
     var lng = -122.411463;
@@ -40,10 +36,24 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     });
   },
 
+  attachAutocomplete: function(){
+    var locationBox = $('input#autocomplete')[0];
+    var autocomplete = new google.maps.places.Autocomplete(locationBox, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', function(){
+      var place = autocomplete.getPlace();
+      console.log('do search');
+      console.log('render map');
+      var lat = place.geometry.location.lat();
+      var lng = place.geometry.location.lng();
+    });
+  },
+
+
   render: function(){
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
+    this.attachAutocomplete();
 
     this.$('#map').html(this.map.$el);
     this.map.render();
