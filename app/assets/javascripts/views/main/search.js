@@ -33,6 +33,31 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       center: { lat: lat, lng: lng },
       zoom: 12
     });
+    this.mapListener();
+  },
+
+  mapListener: function(){
+    google.maps.event.addListener(this.map._map, 'idle', function(){
+      var bounds = this.map.getBounds();
+      var latBounds = [bounds.getSouthWest().lat(), bounds.getNorthEast().lat()];
+      var lngBounds = [bounds.getSouthWest().lng(), bounds.getNorthEast().lng()];
+      var formData = this.search.$el.serializeJSON();
+      formData.lat_bounds = latBounds;
+      formData.lng_bounds = lngBounds;
+      this.fetchData(formData);
+    }.bind(this));
+  },
+
+  fetchData: function(formData){
+    this.loc = formData.loc;
+    delete formData.loc;
+
+    this.tournaments.reset();
+    this.tournaments.fetch({
+      data: {
+        search: formData
+      }
+    });
   },
 
   attachAutocomplete: function(){
@@ -46,18 +71,10 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
         var lat = place.geometry.location.lat();
         var lng = place.geometry.location.lng();
         this.map.centerMap(lat, lng);
-
-        this.loc = formData.loc;
-        delete formData.loc;
         formData.lat = lat;
         formData.lng = lng;
-        
-        this.tournaments.reset();
-        this.tournaments.fetch({
-          data: {
-            search: formData
-          }
-        });
+
+        this.fetchData(formData);
       } else {
         // use geocode to search name
 
