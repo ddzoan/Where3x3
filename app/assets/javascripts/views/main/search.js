@@ -6,10 +6,10 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.tournaments = this.collection;
     this.loc = options.search.loc;
 
-    var index = new Where3x3.Views.TournamentIndex({
+    this.index = new Where3x3.Views.TournamentIndex({
       collection: this.tournaments
     });
-    this.addSubview('#tournament-browse', index);
+    this.addSubview('#tournament-browse', this.index);
     this.search = new Where3x3.Views.SearchBar({
       loc: this.loc,
       start_date: options.search.start,
@@ -63,7 +63,10 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.tournaments.fetch({
       data: {
         search: formData
-      }
+      },
+      error: function(){
+        this.index.$('.tournaments').html('Something went wrong...');
+      }.bind(this)
     });
   },
 

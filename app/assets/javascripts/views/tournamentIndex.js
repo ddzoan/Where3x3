@@ -19,6 +19,7 @@ Where3x3.Views.TournamentIndex = Backbone.CompositeView.extend({
     _(this.subviews('.tournaments')).each(function(subview){
       subview.remove();
     });
+    this.$('.tournaments').html('');
   },
 
   render: function(){
