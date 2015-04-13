@@ -21,19 +21,19 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     });
     this.addSubview('.search', this.search);
 
-    var lat = 37.781273; //default values if none specified
-    var lng = -122.411463;
+    this.lat = 37.781273; //default values if none specified
+    this.lng = -122.411463;
     var zoom = 2;
     if(options.search.lat !== "" && options.search.lng !== ""){
-      lat = Number(options.search.lat);
-      lng = Number(options.search.lng);
+      this.lat = Number(options.search.lat);
+      this.lng = Number(options.search.lng);
       zoom = 9;
     }
 
     this.map = new Where3x3.Views.MapShow({
       collection: this.tournaments,
       map: {
-        center: { lat: lat, lng: lng },
+        center: { lat: this.lat, lng: this.lng },
         zoom: zoom
       }
     });
@@ -120,6 +120,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
     this.$('#map').html(this.map.$el);
     google.maps.event.trigger(this.map._map, 'resize');
+    this.map._map.setCenter({ lat: this.lat, lng: this.lng });
 
     return this;
   },
