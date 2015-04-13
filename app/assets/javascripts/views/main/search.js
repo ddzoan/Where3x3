@@ -110,7 +110,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.attachAutocomplete();
 
     this.$('#map').html(this.map.$el);
-    this.map.render();
+    google.maps.event.trigger(this.map._map, 'resize');
 
     return this;
   },
