@@ -19,12 +19,16 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
     var lat = 37.781273; //default values if none specified
     var lng = -122.411463;
-    if(options.search.lat !== ""){ lat = Number(options.search.lat); }
-    if(options.search.lng !== ""){ lng = Number(options.search.lng); }
+    var zoom = 2;
+    if(options.search.lat !== "" && options.search.lng !== ""){
+      lat = Number(options.search.lat);
+      lng = Number(options.search.lng);
+      zoom = 9;
+    }
 
     this.map = new Where3x3.Views.MapShow({
       center: { lat: lat, lng: lng },
-      zoom: 9
+      zoom: zoom
     });
     this.mapListener();
   },
@@ -41,8 +45,13 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     var latBounds = [bounds.getSouthWest().lat(), bounds.getNorthEast().lat()];
     var lngBounds = [bounds.getSouthWest().lng(), bounds.getNorthEast().lng()];
 
+    // if map is zoomed out to more than one earth, set longitude range to max
+    if(bounds.getSouthWest().lng() > bounds.getNorthEast().lng()){
+      formData.lng_bounds = [-180, 180];
+    } else {
+      formData.lng_bounds = lngBounds;
+    }
     formData.lat_bounds = latBounds;
-    formData.lng_bounds = lngBounds;
 
     this.loc = formData.loc;
     delete formData.loc;
