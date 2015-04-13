@@ -5,12 +5,6 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   initialize: function(options){
     this.tournaments = this.collection;
     this.loc = options.search.loc;
-    delete options.search.loc;
-    this.tournaments.fetch({
-      data: {
-        search: options.search
-      }
-    });
 
     var index = new Where3x3.Views.TournamentIndex({
       collection: this.tournaments
@@ -18,7 +12,6 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.addSubview('#tournament-browse', index);
     this.search = new Where3x3.Views.SearchBar({
       loc: this.loc,
-      rad: options.search.rad,
       start_date: options.search.start,
       end_date: options.search.end
     });
@@ -31,24 +24,26 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
     this.map = new Where3x3.Views.MapShow({
       center: { lat: lat, lng: lng },
-      zoom: 12
+      zoom: 9
     });
     this.mapListener();
   },
 
   mapListener: function(){
     google.maps.event.addListener(this.map._map, 'idle', function(){
-      var bounds = this.map.getBounds();
-      var latBounds = [bounds.getSouthWest().lat(), bounds.getNorthEast().lat()];
-      var lngBounds = [bounds.getSouthWest().lng(), bounds.getNorthEast().lng()];
       var formData = this.search.$el.serializeJSON();
-      formData.lat_bounds = latBounds;
-      formData.lng_bounds = lngBounds;
-      this.fetchData(formData);
+      this.fetchDataInMap(formData);
     }.bind(this));
   },
 
-  fetchData: function(formData){
+  fetchDataInMap: function(formData){
+    var bounds = this.map.getBounds();
+    var latBounds = [bounds.getSouthWest().lat(), bounds.getNorthEast().lat()];
+    var lngBounds = [bounds.getSouthWest().lng(), bounds.getNorthEast().lng()];
+
+    formData.lat_bounds = latBounds;
+    formData.lng_bounds = lngBounds;
+
     this.loc = formData.loc;
     delete formData.loc;
 
@@ -70,11 +65,11 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       if(place.geometry){
         var lat = place.geometry.location.lat();
         var lng = place.geometry.location.lng();
-        this.map.centerMap(lat, lng);
+        this.map.moveMap(lat, lng);
         formData.lat = lat;
         formData.lng = lng;
 
-        this.fetchData(formData);
+        this.fetchDataInMap(formData);
       } else {
         // use geocode to search name
 
@@ -86,7 +81,6 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
         //     '&end=' + formData.end +
         //     '&lat=' + lat +
         //     '&lng=' + lng +
-        //     '&rad=' + formData.rad;
         //   Backbone.history.navigate(search_w_params, { trigger: true });
         // });
       }

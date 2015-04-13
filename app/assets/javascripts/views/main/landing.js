@@ -33,8 +33,7 @@ Where3x3.Views.LandingPage = Backbone.CompositeView.extend({
           '&start=' + formData.start +
           '&end=' + formData.end +
           '&lat=' + lat +
-          '&lng=' + lng +
-          '&rad=' + formData.rad;
+          '&lng=' + lng;
         Backbone.history.navigate(search_w_params, { trigger: true });
       });
     } else {
@@ -42,8 +41,7 @@ Where3x3.Views.LandingPage = Backbone.CompositeView.extend({
         '&start=' + formData.start +
         '&end=' + formData.end +
         '&lat=' + formData.lat +
-        '&lng=' + formData.lng +
-        '&rad=' + formData.rad;
+        '&lng=' + formData.lng;
       Backbone.history.navigate(search_w_params, { trigger: true });
     }
   }
