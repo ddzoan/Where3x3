@@ -1,8 +1,8 @@
 # Where3x3
 
-[Heroku link][heroku]
+[Where3x3.com][where3x3]
 
-[heroku]: https://where3x3.herokuapp.com/
+[where3x3]: http://www.where3x3.com/
 
 ## Minimum Viable Product
 Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's
@@ -14,11 +14,11 @@ cube tournaments. Users can:
 - [ ] Create sessions (log in) (only single session implemented)
 - [x] Browse all tournaments
 - [x] View tournament
-- [x] Search for tournaments by location/date/radius
-- [ ] Search for tournaments in map
+- [x] Search for tournaments by location/date
+- [x] Search for tournaments in map
 - [ ] Sign up for tournaments
 - [x] Create tournaments
-- [ ] View past tournaments
+- [x] View past tournaments
 
 ## Design Docs
 * [View Wireframes][views]
