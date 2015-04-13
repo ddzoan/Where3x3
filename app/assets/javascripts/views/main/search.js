@@ -27,8 +27,11 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     }
 
     this.map = new Where3x3.Views.MapShow({
-      center: { lat: lat, lng: lng },
-      zoom: zoom
+      collection: this.tournaments,
+      map: {
+        center: { lat: lat, lng: lng },
+        zoom: zoom
+      }
     });
     this.mapListener();
   },
