@@ -1,6 +1,10 @@
 Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   template: JST['main/search_page'],
   id: 'search',
+  events: {
+    'blur input[name="start"]': 'updateTournaments',
+    'blur input[name="end"]': 'updateTournaments'
+  },
 
   initialize: function(options){
     this.tournaments = this.collection;
@@ -41,6 +45,11 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       var formData = this.search.$el.serializeJSON();
       this.fetchDataInMap(formData);
     }.bind(this));
+  },
+
+  updateTournaments: function(){
+    var formData = this.search.$el.serializeJSON();
+    this.fetchDataInMap(formData);
   },
 
   fetchDataInMap: function(formData){
