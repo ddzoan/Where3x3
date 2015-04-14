@@ -10,13 +10,18 @@ ul.tournaments li {
   border: 1px solid black;
   float: left;
   background-color: #d3d3d3;
-  margin: 10px;
+  margin: 5px;
   box-shadow: 5px 5px 5px;
   box-sizing: border-box;
   width: 48%;
-  min-width: 400px;
   height: auto;
   overflow-y: scroll;
+}
+
+@media screen and (max-width: 1200px) {
+  ul.tournaments li {
+    width: 96%;
+  }
 }
 
 div.search {
