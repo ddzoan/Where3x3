@@ -1,6 +1,6 @@
 Where3x3.Views.TournamentDetails = Backbone.CompositeView.extend({
   template: JST['main/tournament_show'],
-  className: 'tournament',
+  className: 'tournament-details',
 
   initialize: function(){
     this.listenTo(this.model, 'sync', this.render);

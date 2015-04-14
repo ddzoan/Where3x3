@@ -25,12 +25,21 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     this._markers[tournament.id] = marker;
   },
 
-  showMarkerInfo: function (event, marker) {
+  showMarkerInfo: function (event, marker){
     var infoWindow = new google.maps.InfoWindow({
       content: marker.title
     });
 
     infoWindow.open(this._map, marker);
+  },
+
+  toggleBounce: function(id){
+    var marker = this._markers[id];
+    if (marker.getAnimation() != null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
   },
 
   resetMarkers: function(){

@@ -3,7 +3,9 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   id: 'search',
   events: {
     'blur input[name="start"]': 'updateTournaments',
-    'blur input[name="end"]': 'updateTournaments'
+    'blur input[name="end"]': 'updateTournaments',
+    'mouseover .tournament': 'toggleBounce',
+    'mouseout .tournament': 'toggleBounce'
   },
 
   initialize: function(options){
@@ -14,42 +16,47 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     });
     this.addSubview('#tournament-browse', this.index);
 
-    // Default options for search bar params
-    this.loc = "";
-    var start_date = "";
-    var end_date = "";
-
-    if(options.search){
-      this.loc = options.search.loc;
-      start_date = options.search.start;
-      end_date = options.search.end;
-    }
+    this.setOptions(options);
 
     this.search = new Where3x3.Views.SearchBar({
       loc: this.loc,
-      start_date: start_date,
-      end_date: end_date
+      start_date: this.start_date,
+      end_date: this.end_date
     });
     this.addSubview('.search', this.search);
-
-    this.lat = 37.781273; //default values if none specified
-    this.lng = -122.411463;
-    var zoom = 2;
-
-    if(options.search && options.search.lat !== "" && options.search.lng !== ""){
-      this.lat = Number(options.search.lat);
-      this.lng = Number(options.search.lng);
-      zoom = 9;
-    }
 
     this.map = new Where3x3.Views.MapShow({
       collection: this.tournaments,
       map: {
         center: { lat: this.lat, lng: this.lng },
-        zoom: zoom
+        zoom: this.zoom
       }
     });
     this.mapListener();
+  },
+
+  setOptions: function(options){
+    // Default options for search bar params
+    this.loc = "";
+    this.start_date = "";
+    this.end_date = "";
+
+    // Default map values if none specified
+    this.lat = 37.781273;
+    this.lng = -122.411463;
+    this.zoom = 2;
+
+    if(options.search){
+      this.loc = options.search.loc;
+      this.start_date = options.search.start;
+      this.end_date = options.search.end;
+
+      if(options.search.lat !== "" && options.search.lng !== ""){
+        this.lat = Number(options.search.lat);
+        this.lng = Number(options.search.lng);
+        this.zoom = 9;
+      }
+    }
   },
 
   mapListener: function(){
@@ -61,7 +68,9 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
   updateTournaments: function(){
     var formData = this.search.$el.serializeJSON();
-    this.fetchDataInMap(formData);
+    if(!(formData.start === this.start_date && formData.end === this.end_date )){
+      this.fetchDataInMap(formData);
+    }
   },
 
   fetchDataInMap: function(formData){
@@ -123,6 +132,10 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
+  toggleBounce: function(event){
+    var id = $(event.currentTarget).data('id');
+    this.map.toggleBounce(id);
+  },
 
   render: function(){
     var content = this.template();
