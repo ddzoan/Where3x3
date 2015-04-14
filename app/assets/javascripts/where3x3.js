@@ -8,7 +8,3 @@ window.Where3x3 = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Where3x3.initialize();
-});
