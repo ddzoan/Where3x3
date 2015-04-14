@@ -1,7 +1,12 @@
 <div class="info">
-  name: <%= tournament.escape('name') %><br>
-  location: <%= tournament.escape('location') %><br>
-  venue: <%= tournament.escape('venue') %><br>
-  start_date: <%= tournament.get('start_date') %><br>
-  end_date: <%= tournament.get('end_date') %>
+  <div class="tournament-image">
+    <img src="/assets/<%= Math.floor(7*Math.random()) %>.jpg"/>
+  </div>
+  <div class="tournament-details">
+    name: <%= tournament.escape('name') %><br>
+    location: <%= tournament.escape('location') %><br>
+    venue: <%= tournament.escape('venue') %><br>
+    start_date: <%= tournament.get('start_date') %><br>
+    end_date: <%= tournament.get('end_date') %>
+  </div>
 </div>
