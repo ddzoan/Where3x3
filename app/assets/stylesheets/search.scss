@@ -75,3 +75,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.tournament-details .name {
+  font-size: 16px;
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+}
+
+.tournament-details .venue {
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+}
