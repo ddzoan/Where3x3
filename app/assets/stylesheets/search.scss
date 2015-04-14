@@ -20,3 +20,23 @@
   padding: 0;
   height: 100%;
 }
+
+.tournament:before {
+  content: "";
+  display: block;
+  margin-top:60%;
+}
+
+.tournament {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+}
+
+.tournament .info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

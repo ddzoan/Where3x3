@@ -1,6 +1,7 @@
 Where3x3.Views.TournamentIndexItem = Backbone.CompositeView.extend({
   template: JST['tournaments/indexItem'],
   tagName: 'li',
+  className: 'tournament',
   events: {
     'click': 'tournamentShow'
   },
