@@ -14,6 +14,7 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     var marker = new google.maps.Marker({
       position: { lat: Number(tournament.get('lat')), lng: Number(tournament.get('lng')) },
       map: this._map,
+      animation: google.maps.Animation.DROP,
       title: tournament.get('name')
     });
 
