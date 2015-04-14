@@ -2,9 +2,9 @@
   <div class="tournament-image">
     <img src="/assets/<%= Math.floor(7*Math.random()) %>.jpg"/>
     <div class="date-overlay">
-      <%= tournament.get('start_date') %>
+      <%= new Date(tournament.get('start_date')).toDateString() %>
       <% if(tournament.get('end_date') !== tournament.get('start_date')){ %>
-        - <%= tournament.get('end_date') %>
+        - <%= new Date(tournament.get('end_date')).toDateString() %>
       <% } %>
     </div>
   </div>
