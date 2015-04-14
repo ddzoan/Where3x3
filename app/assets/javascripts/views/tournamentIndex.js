@@ -20,11 +20,12 @@ Where3x3.Views.TournamentIndex = Backbone.CompositeView.extend({
 
   removeTournament: function(tournament){
     var selector = '.tournaments';
-    _(this.subviews(selector)).each(function(subview){
-      if(subview.model === tournament){
-        this.removeSubview(selector, subview);
-      }
-    }.bind(this));
+    var subviews = this.subviews(selector);
+    var i = _(subviews).findIndex(function(el){
+      return el.model === tournament;
+    });
+    subviews[i].remove();
+    subviews.splice(i, 1);
   },
 
   removeAll: function(){
