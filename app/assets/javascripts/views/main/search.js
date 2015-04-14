@@ -8,23 +8,35 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.tournaments = this.collection;
-    this.loc = options.search.loc;
 
     this.index = new Where3x3.Views.TournamentIndex({
       collection: this.tournaments
     });
     this.addSubview('#tournament-browse', this.index);
+
+    // Default options for search bar params
+    this.loc = "";
+    var start_date = "";
+    var end_date = "";
+
+    if(options.search){
+      this.loc = options.search.loc;
+      start_date = options.search.start;
+      end_date = options.search.end;
+    }
+
     this.search = new Where3x3.Views.SearchBar({
       loc: this.loc,
-      start_date: options.search.start,
-      end_date: options.search.end
+      start_date: start_date,
+      end_date: end_date
     });
     this.addSubview('.search', this.search);
 
     this.lat = 37.781273; //default values if none specified
     this.lng = -122.411463;
     var zoom = 2;
-    if(options.search.lat !== "" && options.search.lng !== ""){
+
+    if(options.search && options.search.lat !== "" && options.search.lng !== ""){
       this.lat = Number(options.search.lat);
       this.lng = Number(options.search.lng);
       zoom = 9;
