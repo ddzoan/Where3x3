@@ -19,6 +19,8 @@ cube tournaments. Users can:
 - [ ] Sign up for tournaments
 - [x] Create tournaments
 - [x] View past tournaments
+- [x] Seed DB with real tournament data
+- [ ] User Profile Page
 
 ## Design Docs
 * [View Wireframes][views]
