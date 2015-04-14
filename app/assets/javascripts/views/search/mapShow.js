@@ -6,6 +6,7 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     this._map = new google.maps.Map(this.el, this.mapOptions);
     this._markers = {};
     this.listenTo(this.collection, 'add', this.addMarker);
+    this.listenTo(this.collection, 'remove', this.removeMarker);
     this.listenTo(this.collection, 'reset', this.resetMarkers);
   },
 
@@ -23,6 +24,12 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     }.bind(this));
 
     this._markers[tournament.id] = marker;
+  },
+
+  removeMarker: function(tournament){
+    var marker = this._markers[tournament.id];
+    marker.setMap(null);
+    delete this._markers[tournament.id];
   },
 
   showMarkerInfo: function (event, marker){

@@ -89,7 +89,6 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.loc = formData.loc;
     delete formData.loc;
 
-    this.tournaments.reset();
     this.tournaments.fetch({
       data: {
         search: formData
