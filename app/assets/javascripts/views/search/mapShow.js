@@ -40,12 +40,12 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     infoWindow.open(this._map, marker);
   },
 
-  toggleBounce: function(id){
+  toggleBounce: function(id, turn_on){
     var marker = this._markers[id];
-    if (marker.getAnimation() != null) {
-      marker.setAnimation(null);
-    } else {
+    if(turn_on){
       marker.setAnimation(google.maps.Animation.BOUNCE);
+    } else {
+      marker.setAnimation(null);
     }
   },
 

@@ -133,7 +133,11 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
 
   toggleBounce: function(event){
     var id = $(event.currentTarget).data('id');
-    this.map.toggleBounce(id);
+    if(event.type === "mouseover"){
+      this.map.toggleBounce(id, true);
+    } else {
+      this.map.toggleBounce(id, false);
+    }
   },
 
   render: function(){
