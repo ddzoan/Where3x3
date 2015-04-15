@@ -2,3 +2,24 @@
   margin: 0px auto;
   text-align: center;
 }
+
+.header {
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: -55px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  font-size: 40px;
+  font-weight: 500;
+
+  text-shadow: 2px 2px gray;
+}
+.subtitle {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 25px;
+}
