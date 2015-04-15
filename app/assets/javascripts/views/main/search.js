@@ -78,12 +78,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     var latBounds = [bounds.getSouthWest().lat(), bounds.getNorthEast().lat()];
     var lngBounds = [bounds.getSouthWest().lng(), bounds.getNorthEast().lng()];
 
-    // if map is zoomed out to more than one earth, set longitude range to max
-    if(bounds.getSouthWest().lng() > bounds.getNorthEast().lng()){
-      formData.lng_bounds = [-180, 180];
-    } else {
-      formData.lng_bounds = lngBounds;
-    }
+    formData.lng_bounds = lngBounds;
     formData.lat_bounds = latBounds;
 
     this.loc = formData.loc;

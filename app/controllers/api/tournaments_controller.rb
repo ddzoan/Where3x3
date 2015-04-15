@@ -29,7 +29,13 @@ module Api
         end
 
         if sp[:lng_bounds].present?
-          @tournaments = @tournaments.where(lng: (sp[:lng_bounds][0]..sp[:lng_bounds][1]))
+          left_bound = sp[:lng_bounds][0].to_f
+          right_bound = sp[:lng_bounds][1].to_f
+          if left_bound > right_bound
+            @tournaments = @tournaments.where("lng >= ? OR lng <= ?", left_bound, right_bound)
+          else
+            @tournaments = @tournaments.where(lng: (sp[:lng_bounds][0]..sp[:lng_bounds][1]))
+          end
         end
       end
 
