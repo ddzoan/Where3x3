@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410005806) do
+ActiveRecord::Schema.define(version: 20150415164032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,18 +25,43 @@ ActiveRecord::Schema.define(version: 20150410005806) do
 
   add_index "events", ["tournament_id"], name: "index_events_on_tournament_id", using: :btree
 
+  create_table "import_comps", id: false, force: :cascade do |t|
+    t.string  "id",           limit: 32,  default: "", null: false
+    t.string  "name",         limit: 50,  default: "", null: false
+    t.string  "cityname",     limit: 50,  default: "", null: false
+    t.string  "countryid",    limit: 50,  default: "", null: false
+    t.text    "information"
+    t.integer "year",         limit: 2,                null: false
+    t.integer "month",        limit: 2,                null: false
+    t.integer "day",          limit: 2,                null: false
+    t.integer "endmonth",     limit: 2,                null: false
+    t.integer "endday",       limit: 2,                null: false
+    t.text    "eventspecs",                            null: false
+    t.string  "wcadelegate",  limit: 240, default: "", null: false
+    t.string  "organiser",    limit: 200, default: "", null: false
+    t.string  "venue",        limit: 240, default: "", null: false
+    t.string  "venueaddress", limit: 120
+    t.string  "venuedetails", limit: 120
+    t.string  "website",      limit: 200
+    t.string  "cellname",     limit: 45,  default: "", null: false
+    t.integer "latitude",                 default: 0,  null: false
+    t.integer "longitude",                default: 0,  null: false
+  end
+
   create_table "tournaments", force: :cascade do |t|
-    t.string   "name",                                  null: false
-    t.integer  "organizer_id",                          null: false
+    t.string   "name",                                              null: false
+    t.integer  "organizer_id",                                      null: false
     t.integer  "delegate_id"
-    t.string   "location",                              null: false
-    t.string   "venue",                                 null: false
-    t.date     "start_date",                            null: false
-    t.date     "end_date",                              null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "location",                                          null: false
+    t.string   "venue",                                             null: false
+    t.date     "start_date",                                        null: false
+    t.date     "end_date",                                          null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.decimal  "lat",          precision: 10, scale: 6
     t.decimal  "lng",          precision: 10, scale: 6
+    t.text     "description"
+    t.integer  "price",                                 default: 0
   end
 
   add_index "tournaments", ["delegate_id"], name: "index_tournaments_on_delegate_id", using: :btree

@@ -14,6 +14,8 @@
 #  updated_at   :datetime         not null
 #  lat          :decimal(10, 6)
 #  lng          :decimal(10, 6)
+#  description  :text
+#  price        :integer          default(0)
 #
 
 require 'test_helper'

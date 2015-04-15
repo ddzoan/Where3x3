@@ -1,7 +1,7 @@
 module Api
   class Api::TournamentsController < ApiController
     before_action :ensure_logged_in, only: [ :create ]
-    
+
     def index
       sp = search_params
 
@@ -64,7 +64,7 @@ module Api
     end
 
     def tournament_params
-      params.require(:tournament).permit(:name, :organizer_id, :delegate_id, :location, :venue, :start_date, :end_date, :lat, :lng)
+      params.require(:tournament).permit(:name, :organizer_id, :delegate_id, :location, :venue, :start_date, :end_date, :lat, :lng, :description, :price)
     end
   end
 end

@@ -30,6 +30,7 @@ class ImportComps < ActiveRecord::Base
     ImportComps.all.each do |import|
       name = import.name
       location = "#{import.venueaddress} #{import.cityname} #{import.countryid}"
+      description = import.information
       venue = import.venue
       start_date = Date.new(import.year, import.month, import.day)
       end_date = Date.new(import.year, import.endmonth, import.endday)
@@ -41,6 +42,7 @@ class ImportComps < ActiveRecord::Base
         organizer_id: 1,
         delegate_id: 1,
         location: location,
+        description: description,
         venue: venue,
         start_date: start_date,
         end_date: end_date,

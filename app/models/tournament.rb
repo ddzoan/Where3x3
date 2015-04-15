@@ -14,11 +14,14 @@
 #  updated_at   :datetime         not null
 #  lat          :decimal(10, 6)
 #  lng          :decimal(10, 6)
+#  description  :text
+#  price        :integer          default(0)
 #
 
 class Tournament < ActiveRecord::Base
   validates :name, :organizer_id, :location, :venue, presence: true
   validates :start_date, :end_date, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
   validate :start_date_before_end_date
 
   has_many :events, dependent: :destroy
