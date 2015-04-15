@@ -2,27 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul.tournaments {
-  padding-left: 0;
-}
-
-ul.tournaments li {
-  border: 1px solid black;
-  float: left;
-  background-color: #d3d3d3;
-  margin: 5px;
-  box-shadow: 5px 5px 5px;
-  box-sizing: border-box;
-  width: 48%;
-  height: auto;
-}
-
-@media screen and (max-width: 1200px) {
-  ul.tournaments li {
-    width: 96%;
-  }
-}
-
 div.search {
   margin: 10px;
 }
