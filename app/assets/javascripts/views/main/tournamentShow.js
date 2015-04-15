@@ -1,9 +1,17 @@
 Where3x3.Views.TournamentShow = Backbone.CompositeView.extend({
   template: JST['main/tournament_show'],
   className: 'tournament-details',
+  events: {
+    'submit': 'register'
+  },
 
   initialize: function(){
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  register: function(event){
+    event.preventDefault();
+    alert("Can't sign up for stuff yet :(");
   },
 
   render: function(){
