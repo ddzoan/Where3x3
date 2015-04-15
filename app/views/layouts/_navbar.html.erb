@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Where3x3</a>
+      <a class="navbar-brand" href="/">Where3x3</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,20 +18,14 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Browse <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/#search">Competitions</a></li>
-            <li><a href="/#create">Create a new competition</a></li>
             <li><a href="#"><strike>Competitors</strike></a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Just help things</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Not very useful</a></li>
-          </ul>
-        </li>
+        <% if logged_in? %>
+          <li><a href="/#create" class="btn btn-default" style="padding: 10px 10px;">Create a new competition</a></li>
+        <% end %>
         <li>
           <% if logged_in? %>
             <a href="<%= user_url(current_user) %>"><%= current_user.full_name %></a>

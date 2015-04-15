@@ -1,5 +1,7 @@
 module Api
   class Api::TournamentsController < ApiController
+    before_action :ensure_logged_in, only: [ :create ]
+    
     def index
       sp = search_params
 
