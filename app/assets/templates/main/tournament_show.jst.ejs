@@ -39,28 +39,65 @@
   </div>
   <div class="row details">
     <div class="col-md-8">
-      <div class="description">
-        <p>Description: Bacon ipsum dolor amet pig corned beef flank, strip steak pork loin jowl salami swine porchetta bresaola ribeye shankle. Swine tri-tip prosciutto pork chop beef ribs pork. Filet mignon pork kevin bresaola. Short ribs brisket landjaeger, turducken porchetta pork chop pig alcatra flank sausage. Hamburger tongue filet mignon ground round. Chicken porchetta meatball bresaola venison kielbasa.</p>
-        <p>Meatloaf shoulder cupim boudin filet mignon. Pork belly jowl chicken fatback bresaola sirloin ham strip steak pork spare ribs. Tail landjaeger jowl alcatra doner chicken shank picanha. Bresaola beef ribs fatback ham, frankfurter sausage tongue corned beef salami.</p>
+      <hr>
+      <div class="row description">
+        <div class="col-md-3">
+          <div class="descriptor">
+            Description
+          </div>
+        </div>
+        <div class="col-md-9">
+          <p>Bacon ipsum dolor amet pig corned beef flank, strip steak pork loin jowl salami swine porchetta bresaola ribeye shankle. Swine tri-tip prosciutto pork chop beef ribs pork. Filet mignon pork kevin bresaola. Short ribs brisket landjaeger, turducken porchetta pork chop pig alcatra flank sausage. Hamburger tongue filet mignon ground round. Chicken porchetta meatball bresaola venison kielbasa.</p>
+          <p>Meatloaf shoulder cupim boudin filet mignon. Pork belly jowl chicken fatback bresaola sirloin ham strip steak pork spare ribs. Tail landjaeger jowl alcatra doner chicken shank picanha. Bresaola beef ribs fatback ham, frankfurter sausage tongue corned beef salami.</p>
+          <p>
+            <%= tournament.escape('description') %>
+          </p>
+        </div>
       </div>
       <hr>
-      <div class="dates">
+      <div class="row dates">
         <% var multiday = (tournament.escape('start_date') < tournament.escape('end_date')) %>
-        Date<%= multiday ? 's' : '' %>: <%= new Date(tournament.escape('start_date')).toDateString() %>
-        <% if(multiday){ %>
-          - <%= new Date(tournament.escape('end_date')).toDateString() %>
-        <% } %>
+        <div class="col-md-3">
+          <div class="descriptor">
+            Date<%= multiday ? 's' : '' %>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <%= new Date(tournament.escape('start_date')).toDateString() %>
+          <% if(multiday){ %>
+            - <%= new Date(tournament.escape('end_date')).toDateString() %>
+          <% } %>
+        </div>
       </div>
       <hr>
-      <div class="events">
-        Events:
-        <% tournament.events() %>
+      <div class="row events">
+        <div class="col-md-3">
+          <div class="descriptor">
+            Events
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div>3x3</div>
+          <div>4x4</div>
+          <div>5x5</div>
+          <div>2x2</div>
+          <div>3x3 One Handed</div>
+          <div>3x3 Blindfolded</div>
+        </div>
       </div>
       <hr>
-      <div class="location">
-        <%= tournament.escape('location') %>
+      <div class="row location">
+        <div class="col-md-3">
+          <div class="descriptor">
+            Location
+          </div>
+        </div>
+        <div class="col-md-9">
+          <%= tournament.escape('location') %>
+        </div>
       </div>
-      <div class="static-map">
+      <hr>
+      <div class="row static-map">
       </div>
     </div>
   </div>

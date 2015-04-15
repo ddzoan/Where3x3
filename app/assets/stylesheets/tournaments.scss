@@ -25,6 +25,7 @@ div.static-map {
     overflow: hidden;
     width: 150px;
     height: 150px;
+    margin: 0 auto;
   }
 
   .name {
@@ -49,19 +50,8 @@ div.static-map {
 
   .details {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 14px;
   }
-
-  .description {
-  }
-
-  .dates {
-  }
-
-  .location {
-    text-align: center;
-  }
-
 
   .static-map {
     width: 100%;
