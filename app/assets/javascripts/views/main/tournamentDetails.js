@@ -1,4 +1,4 @@
-Where3x3.Views.TournamentDetails = Backbone.CompositeView.extend({
+Where3x3.Views.TournamentShow = Backbone.CompositeView.extend({
   template: JST['main/tournament_show'],
   className: 'tournament-details',
 
@@ -14,4 +14,4 @@ Where3x3.Views.TournamentDetails = Backbone.CompositeView.extend({
   }
 });
 
-_.extend(Where3x3.Views.TournamentDetails.prototype, Where3x3.MapView);
+_.extend(Where3x3.Views.TournamentShow.prototype, Where3x3.MapView);

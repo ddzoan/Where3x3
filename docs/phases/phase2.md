@@ -18,7 +18,7 @@
 
 ### Views
 * ~~TournamentsIndex (composite view, contains TournamentsIndexItem)~~ (done with phase 1)
-* TournamentDetails
+* TournamentShow
 * Search
 * Landing
 

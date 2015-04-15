@@ -7,7 +7,7 @@ Where3x3.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'landing',
     'search': 'search',
-    'tournament/:id': 'tournamentDetails',
+    'tournament/:id': 'tournamentShow',
     'create': 'create'
   },
 
@@ -24,9 +24,9 @@ Where3x3.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  tournamentDetails: function(id){
+  tournamentShow: function(id){
     var tournament = this.tournaments.getOrFetch(id);
-    var view = new Where3x3.Views.TournamentDetails({ model: tournament });
+    var view = new Where3x3.Views.TournamentShow({ model: tournament });
     this._swapView(view);
   },
 
