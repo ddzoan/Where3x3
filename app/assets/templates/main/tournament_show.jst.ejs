@@ -24,25 +24,38 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="reg-form">
+      <div class="panel" data-spy="affix" data-offset-top="470">
+        <div class="panel-heading">
+          Registration
+        </div>
+        <div class="panel-body">
+          <div class="reg-form">
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="dates">
-      <%= new Date(tournament.escape('start_date')).toDateString() %>
-      <% if(tournament.escape('start_date') < tournament.escape('end_date')){ %>
-        - <%= new Date(tournament.escape('end_date')).toDateString() %>
-      <% } %>
+    <div class="col-md-8">
+      <div class="dates">
+        <%= new Date(tournament.escape('start_date')).toDateString() %>
+        <% if(tournament.escape('start_date') < tournament.escape('end_date')){ %>
+          - <%= new Date(tournament.escape('end_date')).toDateString() %>
+        <% } %>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="location">
-      <%= tournament.escape('location') %>
+    <div class="col-md-8">
+      <div class="location">
+        <%= tournament.escape('location') %>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="static-map">
+    <div class="col-md-8">
+      <div class="static-map">
+      </div>
     </div>
   </div>
 </div>

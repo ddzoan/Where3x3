@@ -47,6 +47,16 @@ div.static-map {
     text-align: center;
   }
 
+  .panel {
+    width: 200px;
+    position: absolute;
+  }
+
+  .panel.affix {
+    position: fixed;
+    top: 0;
+  }
+
   .static-map {
     width: 100%;
     text-align: center;
