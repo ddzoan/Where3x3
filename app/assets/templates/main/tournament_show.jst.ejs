@@ -86,6 +86,17 @@
         </div>
       </div>
       <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="descriptor">
+            Price
+          </div>
+        </div>
+        <div class="col-md-9">
+          <%= tournament.escape('price') ? '$' + tournament.escape('price') : '$0' %>
+        </div>
+      </div>
+      <hr>
       <div class="row location">
         <div class="col-md-3">
           <div class="descriptor">
