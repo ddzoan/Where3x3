@@ -1,22 +1,18 @@
 Where3x3.Views.TournamentShow = Backbone.CompositeView.extend({
   template: JST['main/tournament_show'],
   className: 'tournament-details',
-  events: {
-    'submit': 'register'
-  },
 
   initialize: function(){
     this.listenTo(this.model, 'sync', this.render);
-  },
 
-  register: function(event){
-    event.preventDefault();
-    alert("Can't sign up for stuff yet :(");
+    var regForm = new Where3x3.Views.RegistrationForm();
+    this.addSubview('.reg-form', regForm);
   },
 
   render: function(){
     var content = this.template({ tournament: this.model });
     this.$el.html(content);
+    this.attachSubviews();
     this.showStaticMap(this.model.get('lat'), this.model.get('lng'));
     return this;
   }
