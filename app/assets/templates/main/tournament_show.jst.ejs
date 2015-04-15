@@ -11,7 +11,9 @@
               <img src="http://lorempixel.com/150/150/sports/"/>
             </a>
           </div>
-          Organizer: The Organizer
+          <div class="caption">
+            Organizer: The Organizer
+          </div>
         </div>
         <div class="col-md-9">
           <div class="name">
@@ -35,25 +37,29 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row details">
     <div class="col-md-8">
+      <div class="description">
+        <p>Description: Bacon ipsum dolor amet pig corned beef flank, strip steak pork loin jowl salami swine porchetta bresaola ribeye shankle. Swine tri-tip prosciutto pork chop beef ribs pork. Filet mignon pork kevin bresaola. Short ribs brisket landjaeger, turducken porchetta pork chop pig alcatra flank sausage. Hamburger tongue filet mignon ground round. Chicken porchetta meatball bresaola venison kielbasa.</p>
+        <p>Meatloaf shoulder cupim boudin filet mignon. Pork belly jowl chicken fatback bresaola sirloin ham strip steak pork spare ribs. Tail landjaeger jowl alcatra doner chicken shank picanha. Bresaola beef ribs fatback ham, frankfurter sausage tongue corned beef salami.</p>
+      </div>
+      <hr>
       <div class="dates">
-        <%= new Date(tournament.escape('start_date')).toDateString() %>
-        <% if(tournament.escape('start_date') < tournament.escape('end_date')){ %>
+        <% var multiday = (tournament.escape('start_date') < tournament.escape('end_date')) %>
+        Date<%= multiday ? 's' : '' %>: <%= new Date(tournament.escape('start_date')).toDateString() %>
+        <% if(multiday){ %>
           - <%= new Date(tournament.escape('end_date')).toDateString() %>
         <% } %>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
+      <hr>
+      <div class="events">
+        Events:
+        <% tournament.events() %>
+      </div>
+      <hr>
       <div class="location">
         <%= tournament.escape('location') %>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
       <div class="static-map">
       </div>
     </div>
