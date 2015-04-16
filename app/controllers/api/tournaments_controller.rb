@@ -16,12 +16,12 @@ module Api
       end
 
       if sp
-        if (sp[:start]).present?
-          @tournaments = @tournaments.where("start_date >= ?", sp[:start].to_date)
+        if (sp[:start_date]).present?
+          @tournaments = @tournaments.where("start_date >= ?", Date.strptime(sp[:start_date], '%m-%d-%Y'))
         end
 
-        if sp[:end].present?
-          @tournaments = @tournaments.where("end_date <= ?", sp[:end].to_date)
+        if sp[:end_date].present?
+          @tournaments = @tournaments.where("end_date <= ?", Date.strptime(sp[:end_date], '%m-%d-%Y'))
         end
 
         if sp[:lat_bounds].present?
@@ -67,7 +67,7 @@ module Api
     private
 
     def search_params
-      params.require(:search).permit(:start, :end, :lat, :lng, lat_bounds: [], lng_bounds: [])
+      params.require(:search).permit(:start_date, :end_date, :lat, :lng, lat_bounds: [], lng_bounds: [])
     end
 
     def tournament_params

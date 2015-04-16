@@ -18,6 +18,7 @@
 //= require composite_view
 //= require map_view
 //= require events_view
+//= require form_addons
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
