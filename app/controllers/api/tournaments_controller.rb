@@ -39,7 +39,8 @@ module Api
         end
       end
 
-      render json: @tournaments
+      # render json: @tournaments
+      render :index
     end
 
     def show

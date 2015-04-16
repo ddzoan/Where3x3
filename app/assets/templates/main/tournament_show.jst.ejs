@@ -47,10 +47,8 @@
           </div>
         </div>
         <div class="col-md-9">
-          <p>Bacon ipsum dolor amet pig corned beef flank, strip steak pork loin jowl salami swine porchetta bresaola ribeye shankle. Swine tri-tip prosciutto pork chop beef ribs pork. Filet mignon pork kevin bresaola. Short ribs brisket landjaeger, turducken porchetta pork chop pig alcatra flank sausage. Hamburger tongue filet mignon ground round. Chicken porchetta meatball bresaola venison kielbasa.</p>
-          <p>Meatloaf shoulder cupim boudin filet mignon. Pork belly jowl chicken fatback bresaola sirloin ham strip steak pork spare ribs. Tail landjaeger jowl alcatra doner chicken shank picanha. Bresaola beef ribs fatback ham, frankfurter sausage tongue corned beef salami.</p>
           <p>
-            <%= tournament.escape('description') %>
+            <%= tournament.escape('description') ? tournament.escape('description') : "This tournament does not have a description." %>
           </p>
         </div>
       </div>
