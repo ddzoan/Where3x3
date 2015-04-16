@@ -12,16 +12,20 @@ Where3x3.Views.MapShow = Backbone.View.extend({
 
   addMarker: function(tournament){
     if (this._markers[tournament.id]){ return; }
+    var contentString = '<div id="content"><a href="/#tournament/' + tournament.get('id') + '">' +
+      tournament.escape('name') + '</a></div>';
     var marker = new google.maps.Marker({
       position: { lat: Number(tournament.get('lat')), lng: Number(tournament.get('lng')) },
       map: this._map,
       animation: google.maps.Animation.DROP,
-      title: tournament.get('name')
+      content: contentString
     });
 
-    google.maps.event.addListener(marker, 'click', function (event) {
+    google.maps.event.addListener(marker, 'click', function(event){
       this.showMarkerInfo(event, marker);
     }.bind(this));
+
+    google.maps.event.addListener(this._map, 'click', this.closeInfoWindow.bind(this));
 
     this._markers[tournament.id] = marker;
   },
@@ -32,12 +36,19 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     delete this._markers[tournament.id];
   },
 
+  closeInfoWindow: function(){
+    if(this.infoWindow){
+      this.infoWindow.close();
+    }
+  },
+
   showMarkerInfo: function (event, marker){
-    var infoWindow = new google.maps.InfoWindow({
-      content: marker.title
+    this.closeInfoWindow();
+    this.infoWindow = new google.maps.InfoWindow({
+      content: marker.content
     });
 
-    infoWindow.open(this._map, marker);
+    this.infoWindow.open(this._map, marker);
   },
 
   toggleBounce: function(id, turn_on){
