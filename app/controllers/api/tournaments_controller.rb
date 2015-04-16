@@ -38,7 +38,7 @@ module Api
           end
         end
       end
-
+      @tournaments = @tournaments.includes(:organizer, :delegate)
       # render json: @tournaments
       render :index
     end
