@@ -20,6 +20,29 @@
 #
 
 class Tournament < ActiveRecord::Base
+  EVENTS = {
+    0 => '333',
+    1 => '444',
+    2 => '555',
+    3 => '222',
+    4 => '333bf',
+    5 => '333oh',
+    6 => '333fm',
+    7 => '333ft',
+    8 => 'minx',
+    9 => 'pyram',
+    A: 'sq1',
+    B: 'clock',
+    C: 'skewb',
+    D: '666',
+    E: '777',
+    F: '444bf',
+    G: '555bf',
+    H: '333mbf',
+    I: 'magic',
+    J: 'mmagic'
+  }
+
   validates :name, :organizer_id, :location, :venue, presence: true
   validates :start_date, :end_date, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }
@@ -34,6 +57,22 @@ class Tournament < ActiveRecord::Base
                    :distance_field_name => :distance,
                    :lat_column_name => :lat,
                    :lng_column_name => :lng
+
+  def self.parse_events(events_code)
+    str = {}
+    EVENTS.each do |key, val|
+      if(events_code.include?(key.to_s))
+        str[val] = true
+      else
+        str[val] = false
+      end
+    end
+    str
+  end
+
+  def events
+    self.class.parse_events(self.events_code)
+  end
 
   def self.create_with_all_events(params)
     tournament = Tournament.create(params)

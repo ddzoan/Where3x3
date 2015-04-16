@@ -37,6 +37,8 @@ class ImportComps < ActiveRecord::Base
       lat = import.latitude/1000000.0
       lng = import.longitude/1000000.0
 
+      events_code = self.generate_code(import.eventspecs)
+
       tourney = Tournament.create({
         name: name,
         organizer_id: 1,
@@ -47,62 +49,36 @@ class ImportComps < ActiveRecord::Base
         start_date: start_date,
         end_date: end_date,
         lat: lat,
-        lng: lng
+        lng: lng,
+        events_code: events_code
       })
-# Will use this later for creating events
-      # import.eventspecs.split.each do |spec|
-      #   case spec
-      #   when "333"
-      #     event_type = 0
-      #   when "444"
-      #     event_type = 1
-      #   when "555"
-      #     event_type = 2
-      #   when "222"
-      #     event_type = 3
-      #   when "333bf"
-      #     event_type = 4
-      #   when "333oh"
-      #     event_type = 5
-      #   when "333fm"
-      #     event_type = 6
-      #   when "333ft"
-      #     event_type = 7
-      #   when "minx"
-      #     event_type = 8
-      #   when "pyram"
-      #     event_type = 9
-      #   when "sq1"
-      #     event_type = 10
-      #   when "clock"
-      #     event_type = 11
-      #   when "skewb"
-      #     event_type = 12
-      #   when "666"
-      #     event_type = 13
-      #   when "777"
-      #     event_type = 14
-      #   when "444bf"
-      #     event_type = 15
-      #   when "555bf"
-      #     event_type = 16
-      #   when "333mbf"
-      #     event_type = 17
-      #   when "magic"
-      #     event_type = 18
-      #   when "mmagic"
-      #     event_type = 19
-      #   else
-      #     known_invalids = ["un3sbf", "333ni", "333bts", "snake", "mirbl", "222oh", "360", "333si", "333r3", "333ts"]
-      #     unless known_invalids.include?(spec)
-      #       debugger
-      #     end
-      #
-      #     next
-      #   end
-
-        # Event.create({ tournament_id: tourney.id, event_type: event_type })
-      # end
     end
+  end
+
+  def self.generate_code(eventspecs)
+    code = ""
+
+    code += '0' if(/\b333\b/ =~ eventspecs)
+    code += '1' if(/\b444\b/ =~ eventspecs)
+    code += '2' if(/\b555\b/ =~ eventspecs)
+    code += '3' if(/\b222\b/ =~ eventspecs)
+    code += '4' if(/\b333bf\b/ =~ eventspecs)
+    code += '5' if(/\b333oh\b/ =~ eventspecs)
+    code += '6' if(/\b333fm\b/ =~ eventspecs)
+    code += '7' if(/\b333ft\b/ =~ eventspecs)
+    code += '8' if(/\bminx\b/ =~ eventspecs)
+    code += '9' if(/\bpyram\b/ =~ eventspecs)
+    code += 'A' if(/\bsq1\b/ =~ eventspecs)
+    code += 'B' if(/\bclock\b/ =~ eventspecs)
+    code += 'C' if(/\bskewb\b/ =~ eventspecs)
+    code += 'D' if(/\b666\b/ =~ eventspecs)
+    code += 'E' if(/\b777\b/ =~ eventspecs)
+    code += 'F' if(/\b444bf\b/ =~ eventspecs)
+    code += 'G' if(/\b555bf\b/ =~ eventspecs)
+    code += 'H' if(/\b333mbf\b/ =~ eventspecs)
+    code += 'I' if(/\bmagic\b/ =~ eventspecs)
+    code += 'J' if(/\bmmagic\b/ =~ eventspecs)
+
+    code
   end
 end
