@@ -13,9 +13,16 @@ Where3x3.Views.TournamentShow = Backbone.CompositeView.extend({
     this.addSubview('.events-list', eventsList);
   },
 
+  affixFormPanel: function(){
+    this.$('.panel').affix({
+      offset: { top: 470 }
+    });
+  },
+
   render: function(){
     var content = this.template({ tournament: this.model });
     this.$el.html(content);
+    this.affixFormPanel();
     this.attachSubviews();
     this.showStaticMap(this.model.get('lat'), this.model.get('lng'));
     return this;
