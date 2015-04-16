@@ -5,6 +5,9 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     this.mapOptions = options.map;
     this._map = new google.maps.Map(this.el, this.mapOptions);
     this._markers = {};
+
+    this.collection.each(this.addMarker.bind(this));
+    
     this.listenTo(this.collection, 'add', this.addMarker);
     this.listenTo(this.collection, 'remove', this.removeMarker);
     this.listenTo(this.collection, 'reset', this.resetMarkers);
