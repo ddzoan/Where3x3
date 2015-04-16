@@ -6,6 +6,7 @@ User.create!([
   {fname: "Dan", lname: "Dzoan", email: "ddz@example.com", password_digest: "$2a$10$EOYE9gF3Fq7vfBBgGQo6jurL42EAJkwPFQglZKl4cCZLRckT70U0q", wca_id: "2006DZOA03", delegate: false, description: nil}
 ])
 Tournament.create!([
+  {name: "World Rubik's Cube Championship 1982", organizer_id: 1, delegate_id: 1, location: " Budapest Hungary", venue: "Vigado Concert Hall", start_date: "1982-06-05", end_date: "1982-06-05", lat: "47.498403", lng: "19.040759", description: "", price: 0, events_code: "0"},
   {name: "World Rubik's Games Championship 2003", organizer_id: 1, delegate_id: 1, location: " Toronto, Ontario Canada", venue: "[{Ontario Science Center}{http://www.osc.ca}]", start_date: "2003-08-23", end_date: "2003-08-24", lat: "43.71647", lng: "-79.338712", description: "", price: 0, events_code: "01245689ABFGIJ"},
   {name: "Dutch Open 2003", organizer_id: 1, delegate_id: 1, location: "De Run 6501, 5504 DR Veldhoven Veldhoven Netherlands", venue: "[{ASML}{http://www.asml.com}]", start_date: "2003-10-11", end_date: "2003-10-11", lat: "51.405966", lng: "5.414814", description: "", price: 0, events_code: "0"},
   {name: "Caltech Winter competition 2004", organizer_id: 1, delegate_id: 1, location: " Pasadena, California USA", venue: "[{California Institute of Technology}{http://www.caltech.edu/}]", start_date: "2004-01-24", end_date: "2004-01-24", lat: "34.137855", lng: "-118.126316", description: "", price: 0, events_code: "0"},

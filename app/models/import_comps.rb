@@ -28,31 +28,35 @@ class ImportComps < ActiveRecord::Base
   def self.seed_tournaments
     Tournament.destroy_all
     ImportComps.all.each do |import|
-      name = import.name
-      location = "#{import.venueaddress} #{import.cityname} #{import.countryid}"
-      description = import.information
-      venue = import.venue
-      start_date = Date.new(import.year, import.month, import.day)
-      end_date = Date.new(import.year, import.endmonth, import.endday)
-      lat = import.latitude/1000000.0
-      lng = import.longitude/1000000.0
-
-      events_code = self.generate_code(import.eventspecs)
-
-      tourney = Tournament.create({
-        name: name,
-        organizer_id: 1,
-        delegate_id: 1,
-        location: location,
-        description: description,
-        venue: venue,
-        start_date: start_date,
-        end_date: end_date,
-        lat: lat,
-        lng: lng,
-        events_code: events_code
-      })
+      self.import_comp(import)
     end
+  end
+
+  def self.import_comp(import)
+    name = import.name
+    location = "#{import.venueaddress} #{import.cityname} #{import.countryid}"
+    description = import.information
+    venue = import.venue
+    start_date = Date.new(import.year, import.month, import.day)
+    end_date = Date.new(import.year, import.endmonth, import.endday)
+    lat = import.latitude/1000000.0
+    lng = import.longitude/1000000.0
+
+    events_code = self.generate_code(import.eventspecs)
+
+    tourney = Tournament.create({
+      name: name,
+      organizer_id: 1,
+      delegate_id: 1,
+      location: location,
+      description: description,
+      venue: venue,
+      start_date: start_date,
+      end_date: end_date,
+      lat: lat,
+      lng: lng,
+      events_code: events_code
+    })
   end
 
   def self.generate_code(eventspecs)
