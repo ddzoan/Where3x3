@@ -43,9 +43,18 @@ div.static-map {
     position: absolute;
   }
 
-  .panel.affix {
-    position: fixed;
-    top: 0;
+  @media screen and (min-width: 1200px) {
+    .panel.affix {
+      position: fixed;
+      top: 0;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    .panel {
+      position: relative;
+      margin: 0 auto;
+    }
   }
 
   .details {
