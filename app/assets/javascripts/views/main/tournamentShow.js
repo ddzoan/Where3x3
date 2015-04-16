@@ -5,7 +5,7 @@ Where3x3.Views.TournamentShow = Backbone.CompositeView.extend({
   initialize: function(){
     this.listenTo(this.model, 'sync', this.render);
 
-    var regForm = new Where3x3.Views.RegistrationForm();
+    var regForm = new Where3x3.Views.RegistrationForm({ model: this.model });
     this.addSubview('.reg-form', regForm);
 
     var eventsList = new Where3x3.Views.EventsList({ model: this.model });
