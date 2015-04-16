@@ -16,6 +16,7 @@
 #  lng          :decimal(10, 6)
 #  description  :text
 #  price        :integer          default(0)
+#  events_code  :string
 #
 
 require 'test_helper'
