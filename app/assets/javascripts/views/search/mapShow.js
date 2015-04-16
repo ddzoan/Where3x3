@@ -18,7 +18,8 @@ Where3x3.Views.MapShow = Backbone.View.extend({
       position: { lat: Number(tournament.get('lat')), lng: Number(tournament.get('lng')) },
       map: this._map,
       animation: google.maps.Animation.DROP,
-      content: contentString
+      content: contentString,
+      icon: 'assets/cubeicon.png'
     });
 
     google.maps.event.addListener(marker, 'click', function(event){
