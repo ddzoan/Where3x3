@@ -19,10 +19,25 @@
 </div>
 <script>
   $('button.guest').click(function(){
-    $("input[name='user[email]']").val('ernorubik@example.com');
-    $("input[name='user[password]']").val('rubikscube');
-    $('button.btn.btn-default').click();
-  })
+    $("input[name='user[email]']").val('');
+    $("input[name='user[password]']").val('');
+    autoTyper('guestuser@example.com', $("input[name='user[email]']"), function(){
+      autoTyper('rubikscube', $("input[name='user[password]']"), function(){
+        $('button.btn.btn-default').click();
+      });
+    });
+  });
+
+  var autoTyper = function(word, $el, callback){
+    var typer = setInterval(function(){
+      $el.val($el.val() + word.slice(0,1));
+      word = word.substr(1);
+      if(word.length === 0){
+        clearInterval(typer);
+        callback();
+      }
+    }, 50);
+  }
 </script>
 <div>
 Don't have an account? <%= link_to 'Sign up now!', new_user_url %>

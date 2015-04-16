@@ -1,9 +1,9 @@
 User.create!([
-  {session_token: "P3qYCqwsTeS77J7K1CsGGA", fname: "The", lname: "Organizer", email: "organizer", password_digest: "$2a$10$EOYE9gF3Fq7vfBBgGQo6jurL42EAJkwPFQglZKl4cCZLRckT70U0q", wca_id: nil, delegate: false, description: nil},
-  {session_token: "CuWxU-GWmo_q5a3x70BQoA", fname: "Tyson", lname: "Mao", email: "tmao", password_digest: "$2a$10$0XNJF2O73Fl2CezdiI16MOop5P.hR694.eesG0dnk0lAgHbdi3iY.", wca_id: "2004MAOT02", delegate: false, description: nil},
-  {session_token: "CFZ2ZiMJIhv8Xoh0B6lliw", fname: "Jeremy", lname: "Flei", email: "jflei", password_digest: "$2a$10$STkcHYjwmIe9uc45Ivtq9OdGgxNlOc2./MJc88ZH3PqVKV4AANyWq", wca_id: "2005FLEI01", delegate: true, description: nil},
-  {session_token: "g0eli0SKhAERoI_733oi2g", fname: "Erno", lname: "Rubik", email: "ernorubik@example.com", password_digest: "$2a$10$cbSP2wDg7XvESaB/NkJK5.dDrkOtlgSn3SVqvsAtoH6GlDYZhldaS", wca_id: nil, delegate: false, description: nil},
-  {session_token: "A0IBkBlncnI_JuZsgUVgyw", fname: "Dan", lname: "Dzoan", email: "ddz", password_digest: "$2a$10$EOYE9gF3Fq7vfBBgGQo6jurL42EAJkwPFQglZKl4cCZLRckT70U0q", wca_id: "2006DZOA03", delegate: false, description: nil}
+  {fname: "The", lname: "Organizer", email: "organizer@example.com", password_digest: "$2a$10$EOYE9gF3Fq7vfBBgGQo6jurL42EAJkwPFQglZKl4cCZLRckT70U0q", wca_id: nil, delegate: false, description: nil},
+  {fname: "John", lname: "Cuber", email: "jc@example.com", password_digest: "$2a$10$0XNJF2O73Fl2CezdiI16MOop5P.hR694.eesG0dnk0lAgHbdi3iY.", wca_id: "2004MAOT02", delegate: false, description: nil},
+  {fname: "Rue", lname: "Bik's", email: "rubiks@example.com", password_digest: "$2a$10$STkcHYjwmIe9uc45Ivtq9OdGgxNlOc2./MJc88ZH3PqVKV4AANyWq", wca_id: "2005FLEI01", delegate: true, description: nil},
+  {fname: "Guest", lname: "User", email: "guestuser@example.com", password_digest: "$2a$10$cbSP2wDg7XvESaB/NkJK5.dDrkOtlgSn3SVqvsAtoH6GlDYZhldaS", wca_id: nil, delegate: false, description: nil},
+  {fname: "Dan", lname: "Dzoan", email: "ddz@example.com", password_digest: "$2a$10$EOYE9gF3Fq7vfBBgGQo6jurL42EAJkwPFQglZKl4cCZLRckT70U0q", wca_id: "2006DZOA03", delegate: false, description: nil}
 ])
 Tournament.create!([
   {name: "World Rubik's Games Championship 2003", organizer_id: 1, delegate_id: 1, location: " Toronto, Ontario Canada", venue: "[{Ontario Science Center}{http://www.osc.ca}]", start_date: "2003-08-23", end_date: "2003-08-24", lat: "43.71647", lng: "-79.338712", description: "", price: 0, events_code: "01245689ABFGIJ"},
