@@ -50,6 +50,8 @@ module Api
 
     def create
       @tournament = current_user.organized_tournaments.new(tournament_params)
+      @tournament.start_date = Date.strptime(tournament_params[:start_date], '%m-%d-%Y')
+      @tournament.end_date = Date.strptime(tournament_params[:end_date], '%m-%d-%Y')
       if @tournament.save
         render json: @tournament
       else
@@ -71,7 +73,7 @@ module Api
     end
 
     def tournament_params
-      params.require(:tournament).permit(:name, :organizer_id, :delegate_id, :location, :venue, :start_date, :end_date, :lat, :lng, :description, :price)
+      params.require(:tournament).permit(:name, :organizer_id, :delegate_id, :location, :venue, :start_date, :end_date, :lat, :lng, :description, :price, :image_url)
     end
   end
 end

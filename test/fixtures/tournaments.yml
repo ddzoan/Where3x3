@@ -17,6 +17,7 @@
 #  description  :text
 #  price        :integer          default(0)
 #  events_code  :string
+#  image_url    :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -17,6 +17,7 @@
 #  description  :text
 #  price        :integer          default(0)
 #  events_code  :string
+#  image_url    :string
 #
 
 require 'test_helper'

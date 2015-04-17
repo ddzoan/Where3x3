@@ -9,6 +9,7 @@ json.array! @tournaments do |tournament|
   json.lng tournament.lng
   json.description tournament.description
   json.price tournament.price
+  json.image_url tournament.image_url
   json.events tournament.events
 
   json.organizer tournament.organizer

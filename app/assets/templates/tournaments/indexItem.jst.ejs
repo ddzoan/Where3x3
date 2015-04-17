@@ -1,5 +1,7 @@
+<% var url = (tournament.get('image_url')) ? (tournament.get('image_url')) : 'assets/' + Math.floor(34*Math.random()) + '.jpg' %>
+
 <div class="info">
-  <div class="tournament-image" style="background-image: url(assets/<%= Math.floor(34*Math.random()) %>.jpg)">
+  <div class="tournament-image" style="background-image: url(<%= url %>)">
     <div class="date-overlay">
       <%= new Date(tournament.get('start_date')).toDateString() %>
       <% if(tournament.get('end_date') !== tournament.get('start_date')){ %>
