@@ -22,12 +22,4 @@ class SessionsController < ApplicationController
     session[:session_token] = nil;
     redirect_to new_session_url
   end
-
-  private
-
-  def ensure_logged_out
-    if logged_in?
-      redirect_to root_url
-    end
-  end
 end
