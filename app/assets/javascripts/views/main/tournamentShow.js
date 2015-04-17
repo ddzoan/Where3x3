@@ -23,7 +23,7 @@ Where3x3.Views.TournamentShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.affixFormPanel();
     this.attachSubviews();
-    this.showStaticMap(this.model.get('lat'), this.model.get('lng'));
+    this.showStaticMap(this.model.get('lat'), this.model.get('lng'), '640');
     return this;
   }
 });
