@@ -27,3 +27,5 @@ Where3x3.Views.TournamentForm = Backbone.CompositeView.extend({
     });
   }
 });
+
+_.extend(Where3x3.Views.TournamentForm.prototype, Where3x3.FormAddons);
