@@ -6,14 +6,16 @@ div.search {
   margin: 10px;
 }
 
-div.form {
-  display: block;
-  float: left;
-}
+.create {
+  div.form {
+    display: block;
+    float: left;
+  }
 
-div.static-map {
-  display: block;
-  float: right;
+  div.static-map {
+    display: block;
+    float: left;
+  }
 }
 
 // Tournament Show Page
