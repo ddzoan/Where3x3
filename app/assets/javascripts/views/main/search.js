@@ -136,7 +136,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     this.attachAutocomplete(this.placeChanged.bind(this));
-    this.attachDatePickers();
+    this.attachDatePickers({years: 1});
 
     this.$('#map').html(this.map.$el);
     google.maps.event.trigger(this.map._map, 'resize');

@@ -23,7 +23,7 @@
       <input type="text" class="form-control" name="start_date" value="<%= moment().format('MM-DD-YYYY') %>">
     </label>
     <label>End
-      <input type="text" class="form-control" name="end_date" value="<%= moment().add(365, 'days').format('MM-DD-YYYY') %>">
+      <input type="text" class="form-control" name="end_date" value="<%= moment().add(1, 'y').format('MM-DD-YYYY') %>">
     </label>
     <input type="hidden" name="lat">
     <input type="hidden" name="lng">
