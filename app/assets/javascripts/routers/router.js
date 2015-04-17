@@ -2,7 +2,6 @@ Where3x3.Routers.Router = Backbone.Router.extend({
   initialize: function(){
     this.$rootEl = $('#main');
     this.tournaments = new Where3x3.Collections.Tournaments();
-    this.listenTo(this, 'route', this.clearBackground);
   },
 
   routes: {
@@ -10,10 +9,6 @@ Where3x3.Routers.Router = Backbone.Router.extend({
     'search': 'search',
     'tournament/:id': 'tournamentShow',
     'create': 'create'
-  },
-
-  clearBackground: function(){
-    $('body').css('background-image', '');
   },
 
   landing: function(){

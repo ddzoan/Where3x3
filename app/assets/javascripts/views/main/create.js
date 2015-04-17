@@ -19,7 +19,7 @@ Where3x3.Views.CreatePage = Backbone.CompositeView.extend({
         this.$('input[name="lat"]').val(lat);
         this.$('input[name="lng"]').val(lng);
         var url = this.getStaticMapUrl(lat, lng, { size: '640', scale: '2'});
-        $('body').css('background-image', 'url(' + url + ')');
+        this.$('#background-image').css('background-image', 'url(' + url + ')');
       }
     }.bind(this));
     this.attachDatePickers();
