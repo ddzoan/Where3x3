@@ -58,17 +58,17 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  -webkit-filter: blur(3px);
-  transition: -webkit-filter .3s ease;
-  &:hover {
-    -webkit-filter: none;
-  }
+  z-index: -1;
 }
 
 .new-form {
   width: 300px;
-  margin: 0 auto;
+  margin: 50px auto;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
   h1 {
+    margin-top: 0;
     text-align: center;
   }
 

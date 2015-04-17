@@ -16,6 +16,15 @@ div.search {
     background-color: #f5f5f5;
     z-index: 1;
   }
+
+  #background-image {
+    z-index: 0;
+    -webkit-filter: blur(3px);
+    transition: -webkit-filter .3s ease;
+    &:hover {
+      -webkit-filter: none;
+    }
+  }
 }
 
 // Tournament Show Page
