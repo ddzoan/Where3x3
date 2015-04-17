@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417170731) do
+ActiveRecord::Schema.define(version: 20150417174815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,20 +49,20 @@ ActiveRecord::Schema.define(version: 20150417170731) do
   end
 
   create_table "tournaments", force: :cascade do |t|
-    t.string   "name",                                              null: false
-    t.integer  "organizer_id",                                      null: false
+    t.string   "name",                                               null: false
+    t.integer  "organizer_id",                                       null: false
     t.integer  "delegate_id"
-    t.string   "location",                                          null: false
-    t.string   "venue",                                             null: false
-    t.date     "start_date",                                        null: false
-    t.date     "end_date",                                          null: false
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.string   "location",                                           null: false
+    t.string   "venue",                                              null: false
+    t.date     "start_date",                                         null: false
+    t.date     "end_date",                                           null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
     t.decimal  "lat",          precision: 10, scale: 6
     t.decimal  "lng",          precision: 10, scale: 6
     t.text     "description"
     t.integer  "price",                                 default: 0
-    t.string   "events_code"
+    t.string   "events_code",                           default: "", null: false
     t.string   "image_url"
   end
 
