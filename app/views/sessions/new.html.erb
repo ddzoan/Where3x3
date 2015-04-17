@@ -1,44 +1,46 @@
-<h1>Sign In</h1>
-
-<form action="<%= session_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="form-group">
-    <label>Email
-      <input type="text" name="user[email]" class="form-control" value="<%= @user.email %>">
-    </label>
+<div class="new-form">
+  <h1>Sign In</h1>
+  <form action="<%= session_url %>" method="post">
+    <%= render 'shared/error_messages' %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group">
+      <label for="userEmail">Email</label>
+      <input id="userEmail" type="text" name="user[email]" class="form-control" value="<%= @user.email %>">
+    </div>
+    <div class="form-group">
+      <label for="userPassword">Password</label>
+      <input id="userPassword" type="password" name="user[password]" class="form-control">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default btn-block btn-primary">Sign In</button>
+    </div>
+  </form>
+  <div class="guest-button form-group">
+    <button class="guest btn btn-info btn-block">Guest Login</button>
   </div>
-  <div class="form-group">
-    <label>Password
-      <input type="password" name="user[password]" class="form-control">
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Sign In</button>
-</form>
-<div class="guest-button">
-  <button class="guest btn btn-primary">Guest Login</button>
-</div>
-<script>
-  $('button.guest').click(function(){
-    $("input[name='user[email]']").val('');
-    $("input[name='user[password]']").val('');
-    autoTyper('guestuser@example.com', $("input[name='user[email]']"), function(){
-      autoTyper('rubikscube', $("input[name='user[password]']"), function(){
-        $('button.btn.btn-default').click();
+  <script>
+    $('button.guest').click(function(){
+      $("input[name='user[email]']").val('');
+      $("input[name='user[password]']").val('');
+      autoTyper('guestuser@example.com', $("input[name='user[email]']"), function(){
+        autoTyper('rubikscube', $("input[name='user[password]']"), function(){
+          $('button.btn.btn-default').click();
+        });
       });
     });
-  });
 
-  var autoTyper = function(word, $el, callback){
-    var typer = setInterval(function(){
-      $el.val($el.val() + word.slice(0,1));
-      word = word.substr(1);
-      if(word.length === 0){
-        clearInterval(typer);
-        callback();
-      }
-    }, 50);
-  }
-</script>
-<div>
-Don't have an account? <%= link_to 'Sign up now!', new_user_url %>
+    var autoTyper = function(word, $el, callback){
+      var typer = setInterval(function(){
+        $el.val($el.val() + word.slice(0,1));
+        word = word.substr(1);
+        if(word.length === 0){
+          clearInterval(typer);
+          callback();
+        }
+      }, 50);
+    }
+  </script>
+  <div>
+  Don't have an account? <%= link_to 'Sign up now!', new_user_url %>
+  </div>
 </div>

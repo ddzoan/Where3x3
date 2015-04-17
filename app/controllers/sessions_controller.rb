@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
   def ensure_logged_out
     if logged_in?
-      redirect_to user_url(current_user)
+      redirect_to root_url
     end
   end
 end

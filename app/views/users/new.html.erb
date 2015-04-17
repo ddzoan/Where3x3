@@ -1,34 +1,34 @@
-<h1>Sign Up</h1>
+<div class="new-form">
+  <h1>Sign Up</h1>
 
-<form action="<%= users_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="form-group">
-    <label>First Name *
-      <input type="text" name="user[fname]" class="form-control" value="<%= @user.fname %>">
-    </label>
+  <form action="<%= users_url %>" method="post">
+    <%= render 'shared/error_messages' %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group">
+      <label for="userFname">First Name *</label>
+      <input id="userFname" type="text" name="user[fname]" class="form-control" value="<%= @user.fname %>">
+    </div>
+    <div class="form-group">
+      <label for="userLname">Last Name *</label>
+      <input id="userLname" type="text" name="user[lname]" class="form-control" value="<%= @user.lname %>">
+    </div>
+    <div class="form-group">
+      <label for="userEmail">Email *</label>
+      <input id="userEmail" type="text" name="user[email]" class="form-control" value="<%= @user.email %>">
+    </div>
+    <div class="form-group">
+      <label for="userPassword">Password *</label>
+      <input id="userPassword" type="password" class="form-control" name="user[password]">
+    </div>
+    <div class="form-group">
+      <label for="userWCA">WCA ID</label>
+      <input id="userWCA" type="text" name="user[wca_id]" class="form-control" value="<%= @user.wca_id %>">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default btn-block btn-primary">Sign Up</button>
+    </div>
+  </form>
+  <div>
+  Already have an account? <%= link_to 'Sign in here', new_session_url %>
   </div>
-  <div class="form-group">
-    <label>Last Name *
-      <input type="text" name="user[lname]" class="form-control" value="<%= @user.lname %>">
-    </label>
-  </div>
-  <div class="form-group">
-    <label>Email *
-      <input type="text" name="user[email]" class="form-control" value="<%= @user.email %>">
-    </label>
-  </div>
-  <div class="form-group">
-    <label>Password *
-      <input type="password" class="form-control" name="user[password]">
-    </label>
-  </div>
-  <div class="form-group">
-    <label>WCA ID
-      <input type="text" name="user[wca_id]" class="form-control" value="<%= @user.wca_id %>">
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Sign Up</button>
-</form>
-<div>
-Already have an account? <%= link_to 'Sign in here', new_session_url %>
 </div>
