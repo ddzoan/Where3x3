@@ -1,11 +1,12 @@
 <% var url = (tournament.get('image_url')) ? (tournament.get('image_url')) : 'assets/' + Math.floor(34*Math.random()) + '.jpg' %>
+<% var multiday = (tournament.escape('start_date') !== tournament.escape('end_date')) %>
 
 <div class="info">
   <div class="tournament-image" style="background-image: url(<%= url %>)">
     <div class="date-overlay">
-      <%= new Date(tournament.get('start_date')).toDateString() %>
-      <% if(tournament.get('end_date') !== tournament.get('start_date')){ %>
-        - <%= new Date(tournament.get('end_date')).toDateString() %>
+      <%= moment.utc(tournament.escape('start_date')).format("MMMM DD YYYY") %>
+      <% if(multiday){ %>
+        - <%= moment.utc(tournament.escape('end_date')).format("MMMM DD YYYY") %>
       <% } %>
     </div>
   </div>

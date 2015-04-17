@@ -63,9 +63,9 @@
           </div>
         </div>
         <div class="col-md-9">
-          <%= new Date(tournament.escape('start_date')).toDateString() %>
+          <%= moment.utc(tournament.escape('start_date')).format("dddd, MMMM DD, YYYY") %>
           <% if(multiday){ %>
-            - <%= new Date(tournament.escape('end_date')).toDateString() %>
+            - <%= moment.utc(tournament.escape('end_date')).format("dddd, MMMM DD, YYYY") %>
           <% } %>
         </div>
       </div>
