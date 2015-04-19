@@ -84,6 +84,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.loc = formData.loc;
     delete formData.loc;
 
+    this.updateUrl(formData);
     this.tournaments.fetch({
       data: {
         search: formData
@@ -92,6 +93,15 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
         this.index.$('.tournaments').html('Something went wrong...');
       }.bind(this)
     });
+  },
+
+  updateUrl: function(formData){
+    var search_w_params = 'search?loc=' + this.loc +
+      '&start=' + formData.start_date +
+      '&end=' + formData.end_date +
+      '&lat=' + (formData.lat || this.lat) +
+      '&lng=' + (formData.lng || this.lng);
+    Backbone.history.navigate(search_w_params);
   },
 
   toggleBounce: function(event){
@@ -108,11 +118,11 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     var formData = this.search.$el.serializeJSON();
 
     if(place.geometry){
-      var lat = place.geometry.location.lat();
-      var lng = place.geometry.location.lng();
-      this.map.moveMap(lat, lng);
-      formData.lat = lat;
-      formData.lng = lng;
+      this.lat = place.geometry.location.lat();
+      this.lng = place.geometry.location.lng();
+      this.map.moveMap(this.lat, this.lng);
+      formData.lat = this.lat;
+      formData.lng = this.lng;
 
       this.fetchDataInMap(formData);
     } else {
