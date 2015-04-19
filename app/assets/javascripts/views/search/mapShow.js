@@ -1,4 +1,5 @@
 Where3x3.Views.MapShow = Backbone.View.extend({
+  markerTemplate: JST['search/marker'],
   id: "map-canvas",
 
   initialize: function(options){
@@ -7,7 +8,7 @@ Where3x3.Views.MapShow = Backbone.View.extend({
     this._markers = {};
 
     this.collection.each(this.addMarker.bind(this));
-    
+
     this.listenTo(this.collection, 'add', this.addMarker);
     this.listenTo(this.collection, 'remove', this.removeMarker);
     this.listenTo(this.collection, 'reset', this.resetMarkers);
@@ -15,8 +16,7 @@ Where3x3.Views.MapShow = Backbone.View.extend({
 
   addMarker: function(tournament){
     if (this._markers[tournament.id]){ return; }
-    var contentString = '<div id="content"><a href="/#tournament/' + tournament.get('id') + '">' +
-      tournament.escape('name') + '</a></div>';
+    var contentString = this.markerTemplate({ tournament: tournament });
     var marker = new google.maps.Marker({
       position: { lat: Number(tournament.get('lat')), lng: Number(tournament.get('lng')) },
       map: this._map,

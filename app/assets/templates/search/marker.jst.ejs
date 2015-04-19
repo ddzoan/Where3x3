@@ -1,0 +1,10 @@
+<% var multiday = (tournament.escape('start_date') !== tournament.escape('end_date')) %>
+<div>
+  <%= moment.utc(tournament.escape('start_date')).format("MMMM DD YYYY") %>
+  <% if(multiday){ %>
+    - <%= moment.utc(tournament.escape('end_date')).format("MMMM DD YYYY") %>
+  <% } %><br>
+  <a href="/#tournament/<%= tournament.get('id') %>">
+    <%= tournament.escape('name') %>
+  </a>
+</div>
