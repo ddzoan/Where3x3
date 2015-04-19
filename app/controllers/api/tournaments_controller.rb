@@ -52,6 +52,7 @@ module Api
       @tournament.start_date = Date.strptime(tournament_params[:start_date], '%m-%d-%Y')
       @tournament.end_date = Date.strptime(tournament_params[:end_date], '%m-%d-%Y')
       @tournament.price = tournament_params[:price][1..-1] if(tournament_params[:price][0] == "$")
+      @tournament.events_code = events_code
       if @tournament.save
         render json: @tournament
       else
@@ -67,6 +68,14 @@ module Api
     end
 
     private
+
+    def events_code
+      events_code = '';
+      Tournament::EVENTS.values.each do |code|
+        events_code += Tournament::EVENTS.key(code).to_s if params[code] == 'on'
+      end
+      events_code
+    end
 
     def search_params
       params.require(:search).permit(:start_date, :end_date, :lat, :lng, lat_bounds: [], lng_bounds: [])
