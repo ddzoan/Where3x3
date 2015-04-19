@@ -4,7 +4,7 @@ Where3x3.Views.EventsList = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
   render: function(){
-    var content = this.template({ events: this.model.events, keys: this.keys() });
+    var content = this.template({ events: this.model.events, events_hash: this.events_hash() });
     this.$el.html(content);
     return this;
   }

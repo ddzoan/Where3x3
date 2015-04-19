@@ -12,7 +12,7 @@
       <% if(i == 6) { %>
         <div id="more-events" class="panel-collapse collapse">
       <% } %>
-      <label><input type="checkbox" name="<%= event %>"><%= keys[event] %></label><br>
+      <label><input type="checkbox" name="<%= event %>"><%= events_hash[event] %></label><br>
     <% } %>
   <% }) %>
   <% if(i >= 6) { %>

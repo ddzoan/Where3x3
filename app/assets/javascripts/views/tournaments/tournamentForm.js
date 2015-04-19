@@ -10,7 +10,7 @@ Where3x3.Views.TournamentForm = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template({ tournament: this.model });
+    var content = this.template({ tournament: this.model, keys: this.keys(), events_hash: this.events_hash() });
     this.$el.html(content);
     return this;
   },
@@ -29,3 +29,4 @@ Where3x3.Views.TournamentForm = Backbone.CompositeView.extend({
 });
 
 _.extend(Where3x3.Views.TournamentForm.prototype, Where3x3.FormAddons);
+_.extend(Where3x3.Views.TournamentForm.prototype, Where3x3.EventsView);

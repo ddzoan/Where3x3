@@ -1,9 +1,9 @@
 <% _(events).each(function(included, event){ %>
   <div class="icon">
     <% if(included){ %>
-      <span class="cubing-icon icon-<%= event %>">&nbsp;</span><%= keys[event] %>
+      <span class="cubing-icon icon-<%= event %>">&nbsp;</span><%= events_hash[event] %>
     <% } else { %>
-      <strike><%= keys[event] %></strike>
+      <strike><%= events_hash[event] %></strike>
     <% } %>
   </div>
 <% }) %>

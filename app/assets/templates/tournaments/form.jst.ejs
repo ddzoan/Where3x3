@@ -1,11 +1,13 @@
 <div class="form-group">
   <label for="name" >Tournament Name</label>
-  <input id="name"  type="text" class="form-control" name="name">
+  <input id="name" type="text" class="form-control" name="name">
 </div>
 <div class="form-group">
   <label for="autocomplete">Location</label>
   <input type="text" id="autocomplete" class="form-control" name="location" placeholder="Enter a location to see map"></label>
 </div>
+<input type="hidden" name="lat" value="">
+<input type="hidden" name="lng" value="">
 <div class="form-group">
   <label for="venue">Venue</label>
   <input id="venue" type="text" class="form-control" name="venue">
@@ -30,7 +32,30 @@
   <label for="description">Description</label>
   <textarea id="description" name="description" class="form-control" rows="8" cols="40"></textarea>
 </div>
-<input type="hidden" name="lat" value="">
-<input type="hidden" name="lng" value="">
-<input type="hidden" name="events_code" value="">
+<label>
+  Events
+</label>
+<div class="events-group">
+  <% var left = keys.slice(0,9) %>
+  <% var right = keys.slice(9) %>
+
+  <div class="list">
+  <% _(left).each(function(key){ %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="<%= key %>"><%= events_hash[key] %>
+      </label>
+    </div>
+  <% }) %>
+  </div>
+  <div class="list">
+  <% _(right).each(function(key){ %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="<%= key %>"><%= events_hash[key] %>
+      </label>
+    </div>
+  <% }) %>
+  </div>
+</div>
 <button class="submit btn btn-primary btn-block">Create Tournament</button>

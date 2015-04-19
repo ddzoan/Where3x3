@@ -10,8 +10,8 @@ Where3x3.Views.RegistrationForm = Backbone.CompositeView.extend({
   },
   render: function(){
     var content;
-    if(moment.utc(this.model.escape('start_date')) > moment()){
-      content = this.template({ events: this.model.events, keys: this.keys() });
+    if(moment(this.model.escape('start_date')) > moment()){
+      content = this.template({ events: this.model.events, events_hash: this.events_hash() });
     } else {
       content = this.overTemplate();
     }
