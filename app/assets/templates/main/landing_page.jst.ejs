@@ -17,16 +17,22 @@
 <div class="form-group">
   <form>
     <label>Location
-      <input type="text" class="form-control" id="autocomplete" name="loc" placeholder="(optional)">
+      <input type="text" class="form-control" id="autocomplete"
+        name="loc" placeholder="(optional)">
     </label>
     <label>Start
-      <input type="text" class="form-control" name="start_date" value="<%= moment().format('MM-DD-YYYY') %>">
+      <input type="text" class="form-control" name="start_date"
+        value="<%= moment().format('MM-DD-YYYY') %>">
     </label>
     <label>End
-      <input type="text" class="form-control" name="end_date" value="<%= moment().add(1, 'y').format('MM-DD-YYYY') %>">
+      <input type="text" class="form-control" name="end_date"
+        value="<%= moment().add(1, 'y').format('MM-DD-YYYY') %>">
     </label>
     <input type="hidden" name="lat">
     <input type="hidden" name="lng">
-    <button type="submit" id="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Click search without a location to browse tournaments around the world!">Search!</button>
+    <button type="submit" id="submit" class="btn btn-default"
+      data-toggle="tooltip" data-placement="bottom"
+      title="Click search without a location to browse tournaments around the world!">
+      Search!</button>
   </form>
 </div>
