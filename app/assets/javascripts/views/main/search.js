@@ -2,8 +2,6 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   template: JST['main/search_page'],
   id: 'search',
   events: {
-    'blur input[name="start_date"]': 'updateTournaments',
-    'blur input[name="end_date"]': 'updateTournaments',
     'mouseover .tournament': 'toggleBounce',
     'mouseout .tournament': 'toggleBounce'
   },
@@ -99,8 +97,8 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     var search_w_params = 'search?loc=' + this.loc +
       '&start=' + formData.start_date +
       '&end=' + formData.end_date +
-      '&lat=' + (formData.lat || this.lat) +
-      '&lng=' + (formData.lng || this.lng);
+      '&lat=' + (formData.lat || '') +
+      '&lng=' + (formData.lng || '');
     Backbone.history.navigate(search_w_params);
   },
 
@@ -146,7 +144,12 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     this.attachAutocomplete(this.placeChanged.bind(this));
-    this.attachDatePickers({years: 1});
+    this.attachDatePickers({
+      offset: {years: 1},
+      endDateCallback: function(){
+        this.updateTournaments();
+      }.bind(this)
+    });
 
     this.$('#map').html(this.map.$el);
     google.maps.event.trigger(this.map._map, 'resize');
