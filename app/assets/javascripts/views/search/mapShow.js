@@ -49,7 +49,8 @@ Where3x3.Views.MapShow = Backbone.View.extend({
   showMarkerInfo: function (event, marker){
     this.closeInfoWindow();
     this.infoWindow = new google.maps.InfoWindow({
-      content: marker.content
+      content: marker.content,
+      disableAutoPan: true
     });
 
     this.infoWindow.open(this._map, marker);
@@ -73,7 +74,7 @@ Where3x3.Views.MapShow = Backbone.View.extend({
 
   moveMap: function(lat, lng){
     this._map.panTo({ lat: lat, lng: lng });
-    this._map.setZoom(9);
+    this._map.setZoom(8);
   },
 
   getBounds: function(){

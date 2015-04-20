@@ -52,7 +52,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       if(options.search.lat !== "" && options.search.lng !== ""){
         this.lat = Number(options.search.lat);
         this.lng = Number(options.search.lng);
-        this.zoom = 9;
+        this.zoom = 8;
       }
     }
   },
