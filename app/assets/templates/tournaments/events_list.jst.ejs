@@ -1,9 +1,21 @@
-<% _(events).each(function(included, event){ %>
-  <div class="icon">
+<div class="some">
+  <% _(events).each(function(included, event){ %>
     <% if(included){ %>
-      <span class="cubing-icon icon-<%= event %>">&nbsp;</span><%= events_hash[event] %>
-    <% } else { %>
-      <strike><%= events_hash[event] %></strike>
+      <div class="icon">
+        <span class="cubing-icon icon-<%= event %>">&nbsp;</span><%= events_hash[event] %>
+      </div>
     <% } %>
-  </div>
-<% }) %>
+  <% }) %>
+  <a class="expand-events" href="javascript:void(0)">List all events</a>
+</div>
+<div class="all">
+  <% _(events).each(function(included, event){ %>
+    <div class="icon">
+      <% if(included){ %>
+        <span class="cubing-icon icon-<%= event %>">&nbsp;</span><%= events_hash[event] %>
+      <% } else { %>
+        <strike><%= events_hash[event] %></strike>
+      <% } %>
+    </div>
+  <% }) %>
+</div>

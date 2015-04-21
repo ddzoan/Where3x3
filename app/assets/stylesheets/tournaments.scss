@@ -80,13 +80,19 @@ div.search {
     font-size: 14px;
   }
 
-  .events .icon {
-    margin: 10px;
-    font-size: 16px;
-  }
+  .events {
+    .all {
+      display: none;
+    }
 
-  .events .cubing-icon {
-    font-size: 30px;
+    .icon {
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    .cubing-icon {
+      font-size: 30px;
+    }
   }
 
   .static-map {
