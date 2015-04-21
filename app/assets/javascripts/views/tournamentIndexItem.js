@@ -7,9 +7,20 @@ Where3x3.Views.TournamentIndexItem = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template({ tournament: this.model });
+    var venue = this.parseVenue();
+    var content = this.template({ tournament: this.model, venue: venue });
     this.$el.html(content);
     return this;
+  },
+
+  parseVenue: function(){
+    var regex = /\[\{(.*)\}\{(.*)\}\]/;
+    var match = regex.exec(this.model.escape('venue'));
+    if(match){
+      return match[1];
+    } else {
+      return this.model.escape('venue');
+    }
   },
 
   tournamentShow: function(event){
