@@ -5,19 +5,10 @@
 </div>
 <div class="checkbox">
   Events:<br>
-  <% var i = 0 %>
   <% _(events).each(function(included, event){ %>
     <% if(included){ %>
-      <% i++ %>
-      <% if(i == 6) { %>
-        <div id="more-events" class="panel-collapse collapse">
-      <% } %>
       <label><input type="checkbox" name="<%= event %>"><%= events_hash[event] %></label><br>
     <% } %>
   <% }) %>
-  <% if(i >= 6) { %>
-    </div>
-    <a href="#more-events" data-toggle="collapse" class="collapsed">(more/less)</a>
-  <% } %>
 </div>
-<button type="submit" class="btn btn-default">Register now!</button>
+<button type="submit" class="btn btn-success">Register now!</button>
