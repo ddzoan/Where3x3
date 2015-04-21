@@ -14,7 +14,7 @@
             </a>
           </div>
           <div class="caption">
-            Organizer: The Organizer
+            The Organizer Name
           </div>
         </div>
         <div class="col-md-9">
@@ -22,7 +22,7 @@
             <%= tournament.escape('name') %>
           </div>
           <div class="venue">
-            <%= tournament.escape('venue') %>
+            <%= venue %>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-9">
           <p>
-            <%= tournament.escape('description') ? tournament.escape('description') : "This tournament does not have a description." %>
+            <%= description %>
           </p>
         </div>
       </div>

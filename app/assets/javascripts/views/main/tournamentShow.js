@@ -19,13 +19,32 @@ Where3x3.Views.TournamentShow = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template({ tournament: this.model });
+    var venue = this.parseLink(this.model.escape('venue'));
+    var description = this.model.escape('description') ?
+      this.parseLink(this.model.escape('description')) :
+      "This tournament does not have a description.";
+    var content = this.template({
+      tournament: this.model,
+      venue: venue,
+      description: description
+    });
     this.$el.html(content);
     this.affixFormPanel();
     this.attachSubviews();
     this.showStaticMap(this.model.get('lat'), this.model.get('lng'), { size: '640'});
     return this;
-  }
+  },
+
+  parseLink: function(text){
+    var regex = /\[\{(.*)\}\{(.*)\}\]/;
+    var match = regex.exec(text);
+    if(match){
+      return '<a href="' + match[2] + '">' + match[1] + '</a>';
+    } else {
+      return text;
+    }
+  },
+
 });
 
 _.extend(Where3x3.Views.TournamentShow.prototype, Where3x3.MapView);
