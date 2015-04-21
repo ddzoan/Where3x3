@@ -2,6 +2,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   template: JST['main/search_page'],
   id: 'search',
   events: {
+    'change #autocomplete': 'clearLocationForm',
     'mouseover .tournament': 'toggleBounce',
     'mouseout .tournament': 'toggleBounce'
   },
@@ -121,9 +122,14 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       this.map.moveMap(this.lat, this.lng);
       formData.lat = this.lat;
       formData.lng = this.lng;
+      this.$('input[name="lat"]').val(place.geometry.location.lat());
+      this.$('input[name="lng"]').val(place.geometry.location.lng());
 
       this.fetchDataInMap(formData);
     } else {
+      if(formData.loc === ""){
+        this.clearLocationForm();
+      }
       // use geocode to search name
 
       // this.getLatLng(place.name, function(resp){
@@ -137,6 +143,18 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       //   Backbone.history.navigate(search_w_params, { trigger: true });
       // });
     }
+  },
+
+  clearLocationForm: function(){
+    console.log("clearform");
+    var formData = this.search.$el.serializeJSON();
+    this.loc = '';
+    this.$('input[name="lat"]').val('');
+    this.$('input[name="lng"]').val('');
+    this.map._map.setZoom(2);
+    formData.lat = "";
+    formData.lng = "";
+    this.updateUrl(formData);
   },
 
   render: function(){
