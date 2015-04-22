@@ -85,14 +85,31 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     delete formData.loc;
 
     this.updateUrl(formData);
+    this.noResults(false);
     this.tournaments.fetch({
       data: {
         search: formData
       },
+      success: function(collection){
+        if(collection.isEmpty()){
+          this.noResults(true);
+        }
+      }.bind(this),
       error: function(){
         this.index.$('.tournaments').html('Something went wrong...');
       }.bind(this)
     });
+  },
+
+  noResults: function(show){
+    if(show){
+      var noResults = $('<div>').addClass("no-results").text('No Results Found! Try a different map area.');
+      this.index.$('.tournaments').append(noResults);
+    } else {
+      if(this.index.$('.no-results')) {
+        this.index.$('.no-results').remove();
+      }
+    }
   },
 
   updateUrl: function(formData){
