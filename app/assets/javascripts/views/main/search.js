@@ -23,7 +23,6 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       end_date: this.end_date
     });
     this.addSubview('.search', this.search);
-
     this.map = new Where3x3.Views.MapShow({
       collection: this.tournaments,
       map: {
@@ -119,7 +118,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     if(place.geometry){
       this.lat = place.geometry.location.lat();
       this.lng = place.geometry.location.lng();
-      this.map.moveMap(this.lat, this.lng);
+      this.map._map.fitBounds(place.geometry.viewport);
       formData.lat = this.lat;
       formData.lng = this.lng;
       this.$('input[name="lat"]').val(place.geometry.location.lat());
