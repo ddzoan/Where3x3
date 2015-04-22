@@ -20,7 +20,9 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
     this.search = new Where3x3.Views.SearchBar({
       loc: this.loc,
       start_date: this.start_date,
-      end_date: this.end_date
+      end_date: this.end_date,
+      lat: this.lat,
+      lng: this.lng
     });
     this.addSubview('.search', this.search);
     this.map = new Where3x3.Views.MapShow({
@@ -52,7 +54,7 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
       if(options.search.lat !== "" && options.search.lng !== ""){
         this.lat = Number(options.search.lat);
         this.lng = Number(options.search.lng);
-        this.zoom = 8;
+        this.zoom = 6;
       }
     }
   },
@@ -145,7 +147,6 @@ Where3x3.Views.SearchPage = Backbone.CompositeView.extend({
   },
 
   clearLocationForm: function(){
-    console.log("clearform");
     var formData = this.search.$el.serializeJSON();
     this.loc = '';
     this.$('input[name="lat"]').val('');
