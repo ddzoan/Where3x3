@@ -13,7 +13,7 @@ Where3x3.Views.LandingPage = Backbone.CompositeView.extend({
       $('input[name="lat"]').val(place.geometry.location.lat());
       $('input[name="lng"]').val(place.geometry.location.lng());
     }.bind(this));
-    this.attachDatePickers({ offest: {years: 1} });
+    this.attachDatePickers({ offset: {years: 1} });
 
     this.$('#submit').tooltip('show');
     return this;
