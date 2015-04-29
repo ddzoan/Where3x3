@@ -4,14 +4,19 @@
 
 [where3x3]: http://www.where3x3.com/
 
+## Description
+Where3x3 is an AirBnb style, single page app used to find Rubik's Cube
+tournaments around the world. The backend is built using Ruby on Rails as an API
+and Backbone.js is used on the front end. The database is seeded with real
+tournament data from
+
+![landing page](docs/previews/landing.png)
+![search page](docs/previews/search.png)
+
+# Implementation
+
 ## Minimum Viable Product
-Where3x3 is a clone of AirBnb built on Rails and Backbone used to find Rubik's
-cube tournaments. Users can:
-
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
 - [x] Create accounts
-- [ ] Create sessions (log in) (only single session implemented)
 - [x] Browse all tournaments
 - [x] View tournament
 - [x] Search for tournaments by location/date
@@ -71,8 +76,8 @@ Create user profile page with details and profile image
 Style all the things
 
 ### Bonus Features (TBD)
-- [ ] Custom map markers
-- [ ] Autocomplete for addresses (https://developers.google.com/maps/documentation/javascript/places-autocomplete)
+- [X] Custom map markers
+- [X] Autocomplete for addresses (https://developers.google.com/maps/documentation/javascript/places-autocomplete)
 - [ ] Custom tournament urls
 - [ ] Pagination/infinite scroll
 - [ ] User avatars
