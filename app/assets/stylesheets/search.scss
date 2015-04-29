@@ -44,11 +44,8 @@
 }
 
 li.tournament {
-  border: 1px solid black;
   float: left;
-  background-color: #d3d3d3;
   margin: 5px;
-  box-shadow: 5px 5px 5px;
   box-sizing: border-box;
   width: 48%;
   height: auto;
@@ -85,7 +82,7 @@ li.tournament {
     background-color: rgba(60,63,64,0.9);
     padding: 7px 10px;
     color: white;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .tournament-info {
@@ -105,7 +102,8 @@ li.tournament {
   }
 
   .name {
-    font-size: 16px;
+    font-size: 18px;
+    color: royalblue;
   }
 }
 
